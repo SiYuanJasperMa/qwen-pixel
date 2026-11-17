@@ -1,0 +1,166 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qwen Pixel · Pixel-Space Post-Training for Qwen</title>
+<meta name="description" content="Qwen Pixel: post-train Qwen to understand, generate, and edit images as pixels. Palette-indexed rasters (PixelBench) plus executable RGB programs (PixelWorld).">
+<style>
+:root{color-scheme:dark;--bg:#0b0f14;--panel:#141b24;--line:#2b3745;--text:#edf2f7;--muted:#a0adbc;--green:#b8ed94;--blue:#94ccff;--amber:#f4cb91;--red:#ffaaa0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+main{max-width:1160px;margin:auto;padding:28px 24px 72px}
+.top{position:sticky;top:0;background:#0b0f14f2;border-bottom:1px solid var(--line);z-index:9;backdrop-filter:blur(8px)}
+.top-inner{max-width:1160px;margin:auto;padding:14px 24px;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.brand{font-weight:850;letter-spacing:-.02em}.nav{display:flex;gap:16px;color:var(--muted);font-size:13px;flex-wrap:wrap}
+.hero{margin:24px 0 34px}.eyebrow{font-size:11px;letter-spacing:.12em;color:var(--green);margin:0 0 10px}
+h1{font-size:clamp(32px,4.4vw,52px);line-height:1.12;margin:0 0 14px;letter-spacing:-.04em}
+h2{margin:44px 0 12px;font-size:25px;letter-spacing:-.02em}h3{font-size:20px;margin:10px 0 6px}
+.lede{color:var(--muted);max-width:920px}.lede strong{color:var(--text)}.note{color:var(--muted);font-size:13px}
+.facts{display:flex;gap:26px;margin:20px 0;flex-wrap:wrap}.facts div strong{display:block;font-size:26px;line-height:1.2}
+.facts div span{color:var(--muted);font-size:12px}
+.herofig{margin:18px 0 0}.herofig img{width:100%;max-width:760px;border:1px solid var(--line);border-radius:12px;display:block}
+.herofig figcaption{color:var(--muted);font-size:12px;margin-top:8px}
+.grid2,.grid3,.grid4{display:grid;gap:16px}.grid2{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(3,1fr)}.grid4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:8px 0}.badge{display:inline-block;font-size:11px;border:1px solid #465749;border-radius:6px;padding:3px 8px;color:var(--green);letter-spacing:.06em}
+.badge.blue{border-color:#3d5c7a;color:var(--blue)}.badge.amber{border-color:#5c4c31;color:var(--amber)}
+pre{background:#0d1319;border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto;font-size:12px;line-height:1.5}
+code{font-size:12.5px}.scroll{overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-size:12px;font-weight:600}td.num{font-variant-numeric:tabular-nums;font-weight:700}
+td.detail{color:var(--muted);font-size:12.5px}.good{color:var(--green)}.warnv{color:var(--amber)}.bad{color:var(--red)}
+.callout{border:1px solid var(--line);border-left:3px solid var(--blue);background:var(--panel);border-radius:10px;padding:14px 16px;margin:16px 0;color:var(--muted);font-size:13.5px}
+.callout.bad{border-left-color:var(--red)}.callout.warn{border-left-color:var(--amber)}.callout.good{border-left-color:var(--green)}
+figure{margin:0}figure img{width:100%;display:block;border-radius:8px;border:1px solid var(--line);background:#fff}
+figcaption{color:var(--muted);font-size:11.5px;margin-top:5px}
+.widefig{margin:16px 0}.widefig img{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff}
+.roadmap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.step{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.step.done{border-color:#52714a;background:linear-gradient(130deg,#1a2b20,var(--panel) 70%)}
+.step.active{border-color:#7a633d;background:linear-gradient(130deg,#2b2416,var(--panel) 70%)}
+.step .tag{font-size:11px;color:var(--muted);letter-spacing:.08em}.step h3{font-size:17px;margin:6px 0}
+.plain{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:13px}.plain li{margin:6px 0}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:12px;padding:20px 0;margin-top:40px}
+@media(max-width:900px){.grid2,.grid3,.grid4,.roadmap{grid-template-columns:1fr}.top-inner{display:block}.nav{margin-top:8px}}
+</style></head>
+<body>
+<header class="top"><div class="top-inner"><a class="brand" href="index.html">Qwen Pixel</a>
+<nav class="nav"><a href="#what">Overview</a><a href="#interfaces">Interfaces</a><a href="#m0">Milestone 0</a><a href="#m1">Milestone 1</a><a href="#data">Data</a><a href="#roadmap">Roadmap</a><a href="https://siyuanmacs.github.io/pixelworld/">PixelWorld</a></nav></div></header>
+<main>
+
+<section class="hero"><p class="eyebrow">QWEN 3.5-9B BASE · LORA · PIXEL-SPACE POST-TRAINING</p>
+<h1>Qwen Pixel</h1>
+<p class="lede">Post-train Qwen to <strong>understand, generate, and edit images as pixels</strong>. Low-resolution images use a palette plus an index grid (PixelBench). High-resolution edits and video use executable PIL/NumPy programs (PixelWorld). This is a <strong>post-training project for Qwen</strong>, not a PixelWorld benchmark run.</p>
+<div class="facts"><div><strong>9B</strong><span>Qwen3.5-9B-Base + LoRA</span></div><div><strong>19,776</strong><span>converted real records</span></div><div><strong>50k</strong><span>synthetic 16×16 / 32×32 rows</span></div><div><strong>500</strong><span>weighted smoke steps</span></div><div><strong>8×H20</strong><span>available for scale-up</span></div></div>
+<figure class="herofig"><img src="milestone0/assets/demo_comparison.png" alt="Qwen pixel edit example"><figcaption>Milestone 0: the 9B LoRA reads a real photo and instruction, writes executable code, and edits the requested region. No target, bbox, or mask enters the prompt.</figcaption></figure>
+</section>
+
+<section id="what"><h2>What Qwen Pixel is</h2>
+<div class="grid4">
+<article class="card"><span class="badge">UNDERSTAND</span><h3>Pixel understanding</h3><p>Grounding, counting, color/position questions, and reading a palette-indexed raster.</p></article>
+<article class="card"><span class="badge">GENERATE</span><h3>Text → pixel image</h3><p>Emit a palette of at most 8 colors and a 16×16 / 32×32 index grid. No tokenizer or decoder.</p></article>
+<article class="card"><span class="badge">EDIT</span><h3>Image + instruction → pixels</h3><p>Palette/grid for low-resolution edits; executable PIL/NumPy code for high-resolution edits.</p></article>
+<article class="card"><span class="badge amber">VIDEO</span><h3>Frame sequences</h3><p>Per-frame grids for low-resolution motion; executable RGB programs for PixelWorld-style video.</p></article>
+</div>
+<div class="callout"><strong>Relationship to PixelWorld:</strong> PixelWorld evaluates coding agents as pixel world models and is the source of the executable-RGB protocol. Qwen Pixel trains Qwen itself. We reuse PixelWorld's program interface for high-resolution and video, and PixelBench's palette-grid interface for scalable image generation and understanding.</div>
+</section>
+
+<section id="interfaces"><h2>Two pixel interfaces</h2>
+<div class="grid2">
+<article class="card"><span class="badge blue">PIXELBENCH</span><h3>Palette + index grid</h3>
+<p>At most 8 RGB colors, then a square grid of single-digit indices. Standard assistant-token cross entropy; no architecture change.</p>
+<pre>PALETTE: [[245,245,245],[220,40,40],[40,160,70]]
+GRID:
+0000000000000000
+0001111000000000
+0001111000000000
+0000000000000000</pre></article>
+<article class="card"><span class="badge">PIXELWORLD</span><h3>Executable RGB program</h3>
+<p>For high-resolution edits and video, Qwen writes code that reads pixels, applies an operation, and saves the result. The evaluator executes it.</p>
+<pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open("input.png").convert("RGB"))
+mask = np.all(a == [220, 40, 40], axis=-1)
+a[mask] = [40, 160, 70]
+Image.fromarray(a).save("output.png")</pre></article>
+</div>
+<p class="note">The two interfaces are complementary: palette/grid is compact and learnable at low resolution; code is exact and scalable for high resolution and time.</p>
+</section>
+
+<section id="m0"><h2>Milestone 0 · code-as-policy <span class="count">completed</span></h2>
+<p class="lede">The first checkpoint uses executable code for editing, grounding, and QA. It is the foundation for the code interface and proves the Qwen training pipeline works end-to-end.</p>
+<div class="scroll"><table><thead><tr><th>Task</th><th>Cases</th><th>Success</th><th>Details</th></tr></thead><tbody>
+<tr><td>Real-photo referred-region tint</td><td class="num">64</td><td class="num good">92.2%</td><td class="detail">region IoU 0.8080 · edit L1 0.0196 · preserve L1 0.0026</td></tr>
+<tr><td>Real-photo referring grounding</td><td class="num">64</td><td class="num good">93.8%</td><td class="detail">mean IoU 0.8096</td></tr>
+<tr><td>Controlled pixel operations</td><td class="num">320</td><td class="num good">100%</td><td class="detail">320/320 pixel-exact</td></tr>
+<tr><td>Original MagicBrush semantic editing</td><td class="num">64</td><td class="num bad">0%</td><td class="detail">36/64 valid outputs · region IoU 0.1395 · open semantic editing remains unsolved</td></tr>
+</tbody></table></div>
+<p class="note">Full milestone-0 galleries, failure cases, code, and audit: <a href="milestone0/index.html">Qwen Pixel Edit results →</a></p>
+</section>
+
+<section id="m1"><h2>Milestone 1 · palette-grid smoke <span class="count">in progress</span></h2>
+<p class="lede">The current checkpoint learns the <strong>palette + grid format</strong> at 16×16, but the grid content is not solved yet. After 300 synthetic steps the model outputs valid palettes and a grid, but the grid is mostly the background color. A 500-step weighted run is testing a non-zero-token loss to break that local optimum.</p>
+<div class="scroll"><table><thead><tr><th>Checkpoint</th><th>Task</th><th>Parse</th><th>Palette exact</th><th>Grid exact</th><th>Pixel accuracy</th></tr></thead><tbody>
+<tr><td>300 (synthetic)</td><td>T2P</td><td class="num">100%</td><td class="num">100%</td><td class="num bad">0%</td><td class="num">86.4%</td></tr>
+<tr><td>300 (synthetic)</td><td>I2P</td><td class="num">100%</td><td class="num">75%</td><td class="num bad">0%</td><td class="num">86.4%</td></tr>
+<tr><td>300 (synthetic)</td><td>Edit</td><td class="num">100%</td><td class="num">100%</td><td class="num bad">0%</td><td class="num">89.4%</td></tr>
+<tr><td>500 (weighted, 100)</td><td>Edit</td><td class="num">75%</td><td class="num">100%</td><td class="num bad">0%</td><td class="num warnv">74.7%</td></tr>
+</tbody></table></div>
+<figure class="widefig"><img src="assets/preview-gallery.png" alt="Qwen Pixel 16x16 preview"><figcaption>16×16 held-out cases. Target contains shapes; the current prediction is still dominated by the background. This is an intermediate training state, not the final result.</figcaption></figure>
+<p class="note">Detailed per-case preview: <a href="preview.html">16×16 smoke preview →</a> · Checkpoint-500 evaluation is running.</p>
+</section>
+
+<section id="data"><h2>Training data</h2>
+<div class="grid2">
+<article class="card"><h3>Synthetic (exact supervision)</h3><ul class="plain">
+<li>30k rows at 16×16, 20k rows at 32×32</li>
+<li>T2P, I2P, pixel understanding, and edit operations</li>
+<li>Shapes, colors, counts, positions, patterns, flips, rotations, moves</li>
+<li>Every target is generated from the same scene program, so the grid is exact</li>
+</ul></article>
+<article class="card"><h3>Real converted data</h3><ul class="plain">
+<li>19,776 rows from the completed Qwen pixel edit experiment</li>
+<li>8,558 edit → palette/grid by quantizing existing target images</li>
+<li>8,278 grounding → bbox JSON; 926 QA → short answers</li>
+<li>COCO/RefCOCO photos, MagicBrush controlled operations</li>
+</ul></article>
+</div>
+<div class="callout warn"><strong>Data boundary:</strong> image pairs alone are not program supervision. Low-resolution edit targets are explicitly defined quantizations of existing targets; high-resolution semantic edits still require executable code or a renderer. Original MagicBrush semantic editing remains 0/64 and is kept as a failure case.</div>
+</section>
+
+<section id="training"><h2>Training</h2>
+<div class="grid2">
+<article class="card"><h3>Recipe</h3><ul class="plain">
+<li>Base: <code>Qwen/Qwen3.5-9B-Base</code></li>
+<li>LoRA rank 16 on the language side; assistant-token CE</li>
+<li>16×16 first (~500 tokens/example), then 32×32 (~1,200 tokens)</li>
+<li>Weighted CE for grid tokens 1–7 to avoid the all-background optimum</li>
+<li>1×H20 for smoke; 8×H20 available for scale-up</li>
+</ul></article>
+<article class="card"><h3>Measured smoke</h3><ul class="plain">
+<li>3-step load test: finite loss/grad, adapter weights change</li>
+<li>300-step synthetic run: ~1.7 s/step, 21.3 GiB peak</li>
+<li>500-step weighted run: completed, checkpoints 100–500</li>
+<li>Format parse rate: 100% at checkpoint-300</li>
+</ul></article>
+</div>
+<figure class="widefig"><img src="milestone0/assets/training_curves.png" alt="training curves"><figcaption>Milestone-0 training curves. Palette-grid curves are in the Qwen Pixel experiment workspace.</figcaption></figure>
+</section>
+
+<section id="roadmap"><h2>Roadmap</h2>
+<div class="roadmap">
+<div class="step done"><span class="tag">M0 · DONE</span><h3>Code-as-policy</h3><p class="note">9B LoRA edits, grounds, and answers. 92.2% region tint, 93.8% grounding, 0/64 open semantic editing.</p></div>
+<div class="step active"><span class="tag">M1 · ACTIVE</span><h3>Palette-grid</h3><p class="note">16×16 T2P/I2P/PU/edit. Format learned; grid content and weighted loss under test.</p></div>
+<div class="step"><span class="tag">M2</span><h3>Scale 32×32</h3><p class="note">Mixed synthetic + real corpus, 8×H20 DDP, 200k–1M rows.</p></div>
+<div class="step"><span class="tag">M3</span><h3>Video</h3><p class="note">Per-frame grids and PixelWorld-style executable RGB programs.</p></div>
+</div>
+</section>
+
+<section id="links"><h2>References and links</h2>
+<div class="grid3">
+<article class="card"><h3>PixelBench</h3><p class="note">Palette-indexed raster T2P/I2P/pixel understanding and Pixel Reconstruction Tuning.</p><p><a href="https://arxiv.org/abs/2611.02540">arXiv:2611.02540 →</a></p></article>
+<article class="card"><h3>PixelWorld</h3><p class="note">Coding agents as direct RGB pixel world models; executable programs and exact PNG ↔ uint32 validation.</p><p><a href="https://siyuanmacs.github.io/pixelworld/">PixelWorld page →</a></p></article>
+<article class="card"><h3>Milestone 0</h3><p class="note">Full Qwen Pixel Edit results, galleries, failures, code, and audit.</p><p><a href="milestone0/index.html">Results →</a></p></article>
+</div>
+</section>
+
+<footer>Qwen Pixel · post-training project · <a href="https://siyuanmacs.github.io/">Home</a> · <a href="https://siyuanmacs.github.io/pixelworld/">PixelWorld</a></footer>
+</main>
+</body></html>

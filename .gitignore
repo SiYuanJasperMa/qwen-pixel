@@ -1,0 +1,7 @@
+data/
+outputs/
+pages_branch/
+models/
+__pycache__/
+*.pyc
+.venv/

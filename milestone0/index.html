@@ -1,0 +1,270 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Qwen Pixel Edit · 9B Base + LoRA</title>
+<meta name="description" content="用 Qwen3.5-9B-Base + LoRA 训练图像编辑、指称定位和图像问答：模型输出可执行 PIL/NumPy 代码、bbox 或短答案。包含 9B/27B smoke、真实照片与合成 held-out 结果，以及原始 MagicBrush 0/64 的失败记录。">
+<link rel="canonical" href="https://siyuanmacs.github.io/qwen-pixel-edit/">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Qwen Pixel Edit · 9B Base + LoRA">
+<meta property="og:description" content="Qwen3.5-9B-Base + LoRA：看图 → 写可执行像素程序 / bbox / 短答案。92.2% 真实照片区域着色，93.8% 指称定位，原始 MagicBrush 语义编辑 0/64。">
+<meta property="og:url" content="https://siyuanmacs.github.io/qwen-pixel-edit/">
+<meta name="twitter:card" content="summary">
+<style>
+:root{color-scheme:dark;--bg:#0b0f14;--panel:#141b24;--line:#2b3745;--text:#edf2f7;--muted:#a0adbc;--green:#b8ed94;--blue:#94ccff;--amber:#f4cb91;--red:#ffaaa0}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
+main{max-width:1160px;margin:auto;padding:28px 24px 72px}
+.top{position:sticky;top:0;background:#0b0f14f2;border-bottom:1px solid var(--line);z-index:9;backdrop-filter:blur(8px)}
+.top-inner{max-width:1160px;margin:auto;padding:14px 24px;display:flex;justify-content:space-between;gap:18px;align-items:center}
+.brand{font-weight:850;letter-spacing:-.02em}.nav{display:flex;gap:16px;color:var(--muted);font-size:13px;flex-wrap:wrap}
+.hero{margin:24px 0 34px}.eyebrow{font-size:11px;letter-spacing:.12em;color:var(--green);margin:0 0 10px}
+h1{font-size:clamp(32px,4.4vw,52px);line-height:1.12;margin:0 0 14px;letter-spacing:-.04em}
+.lede{color:var(--muted);max-width:900px}.note{color:var(--muted);font-size:13px}
+.facts{display:flex;gap:26px;margin:20px 0;flex-wrap:wrap}.facts div strong{display:block;font-size:26px;line-height:1.2}
+.facts div span{color:var(--muted);font-size:12px}
+.herofig{margin:18px 0 0}.herofig img{width:100%;max-width:760px;border:1px solid var(--line);border-radius:12px;display:block}
+.herofig figcaption{color:var(--muted);font-size:12px;margin-top:8px}
+h2{margin:44px 0 12px;font-size:25px;letter-spacing:-.02em}.badhead{color:var(--red)}
+.count{font-size:12px;color:var(--muted);font-weight:400;margin-left:8px}
+.grid2,.grid3{display:grid;gap:16px}.grid2{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3{margin:8px 0}.badge{display:inline-block;font-size:11px;border:1px solid #465749;border-radius:6px;padding:3px 8px;color:var(--green);letter-spacing:.06em}
+pre{background:#0d1319;border:1px solid var(--line);border-radius:8px;padding:12px;overflow:auto;font-size:12px;line-height:1.5}
+code{font-size:12.5px}.tinycode{font-size:10.5px;word-break:break-all}
+.scroll{overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:760px}th,td{border-bottom:1px solid var(--line);padding:11px 13px;text-align:left;vertical-align:top}
+th{color:var(--muted);font-size:12px;font-weight:600}td.num{font-variant-numeric:tabular-nums;font-weight:700}
+td.detail{color:var(--muted);font-size:12.5px}.good{color:var(--green)}.warnv{color:var(--amber)}.bad{color:var(--red)}
+.callout{border:1px solid var(--line);border-left:3px solid var(--blue);background:var(--panel);border-radius:10px;padding:14px 16px;margin:16px 0;color:var(--muted);font-size:13.5px}
+.callout.bad{border-left-color:var(--red)}.callout.warn{border-left-color:var(--amber)}
+.filters{display:flex;gap:8px;margin:14px 0 16px}.filters button{background:#1b2531;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:7px 12px;font:inherit;font-size:12.5px;cursor:pointer}
+.filters button.on{background:var(--green);color:#17220f;border-color:var(--green);font-weight:700}
+.cases{display:grid;grid-template-columns:1fr;gap:16px}
+.case{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}
+.case-head{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:6px}
+.pill{font-size:10.5px;font-weight:800;letter-spacing:.08em;border-radius:5px;padding:2px 7px}
+.pill.ok{background:#1e3323;color:var(--green);border:1px solid #3d5c45}.pill.bad{background:#331f1e;color:var(--red);border:1px solid #5c3d3a}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:var(--text)}.metric{margin-left:auto;color:var(--muted);font-size:12px;font-variant-numeric:tabular-nums}
+.instr{margin:4px 0 12px;color:var(--muted);font-size:13.5px}
+.triplet{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:start}
+figure{margin:0}figure img{width:100%;display:block;border-radius:8px;border:1px solid var(--line);background:#0d1319}
+figcaption{color:var(--muted);font-size:11.5px;margin-top:5px}
+.missing{width:100%;aspect-ratio:1/1;display:grid;place-items:center;background:#0d1319;border:1px dashed var(--line);border-radius:8px;color:var(--red);font-size:12px;text-align:center;padding:10px}
+details summary{cursor:pointer;color:var(--blue);font-size:12.5px;margin-top:10px}
+.answerbox{background:#0d1319;border:1px solid var(--line);border-radius:8px;padding:14px;align-self:stretch;display:flex;flex-direction:column;gap:8px;justify-content:center}
+.answerlabel{color:var(--muted);font-size:11px}.answerbox code{font-size:15px;color:var(--green)}
+.gridbox{margin-top:18px}.grid-scroll{max-height:720px;overflow:auto;border:1px solid var(--line);border-radius:10px;background:#0d1319;margin-top:8px}
+.grid-scroll img{width:100%;display:block}
+.widefig{margin:16px 0}.widefig img{width:100%;border:1px solid var(--line);border-radius:12px;background:#fff}
+.auditgrid{display:grid;grid-template-columns:1.4fr 1fr;gap:16px;align-items:start}
+.checklist{list-style:none;margin:0;padding:0;background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.checklist li{display:flex;gap:10px;padding:11px 14px;border-bottom:1px solid var(--line);font-size:13px}.checklist li:last-child{border-bottom:0}
+.okitem span{color:var(--green);font-weight:800}.baditem span{color:var(--red);font-weight:800}
+.auditfacts div{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:10px}
+.auditfacts strong{display:block;font-size:22px}.auditfacts span{color:var(--muted);font-size:12px}
+.plain{margin:8px 0 0;padding-left:18px;color:var(--muted);font-size:13px}.plain li{margin:6px 0}
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:12px;padding:20px 0;margin-top:40px}
+@media(max-width:860px){.grid2,.grid3,.auditgrid{grid-template-columns:1fr}.triplet,.triplet.two{grid-template-columns:1fr 1fr;max-width:none}.top-inner{display:block}.nav{margin-top:8px}}
+</style></head>
+<body>
+<header class="top"><div class="top-inner"><a class="brand" href="https://siyuanmacs.github.io/">Siyuan Ma</a>
+<nav class="nav"><a href="https://siyuanmacs.github.io/pixelworld/">PixelWorld</a><a href="#results">结果</a><a href="#protocol">协议</a><a href="#edit">编辑</a><a href="#grounding">定位</a><a href="#failure">失败案例</a><a href="#audit">审计</a></nav></div></header>
+<main>
+<section class="hero"><p class="eyebrow">QWEN 9B BASE · LORA · PIXEL TASKS</p>
+<h1>让 9B Qwen 用代码编辑像素</h1>
+<p class="lede">用官方 <strong>Qwen3.5-9B-Base</strong> 做 rank-8 LoRA SFT，把图像编辑、指称定位和图像问答统一成“看图 → 输出可执行程序 / bbox / 短答案”。没有图像生成头，没有扩散模型；像素只通过真实执行 PIL/NumPy 代码产生。</p>
+<div class="facts"><div><strong>19,776</strong><span>训练记录</span></div><div><strong>5,000</strong><span>optimizer steps</span></div><div><strong>97 min</strong><span>1×H20 训练时间</span></div><div><strong>92.2%</strong><span>真实照片区域着色</span></div><div><strong>93.8%</strong><span>真实照片指称定位</span></div></div>
+<figure class="herofig"><img src="assets/demo_comparison.png" alt="input and edited output"><figcaption>最终 adapter 的实际推理：左为输入，右为模型生成代码执行后的结果。指令是“把右上角白色锅的矩形区域染蓝并保持亮度”，模型没有拿到 target、bbox 或 mask。</figcaption></figure>
+</section>
+
+<section id="results"><h2>最终结果</h2>
+<div class="scroll"><table>
+<thead><tr><th>数据集 / 设置</th><th>任务</th><th>Cases</th><th>Success</th><th>细节</th></tr></thead>
+<tbody><tr><td>真实照片 · 指称区域着色</td><td>edit</td><td class="num">64</td><td class="num good">92.2%</td><td class="detail">edit L1 0.0196 · preserve L1 0.0026 · pixel-exact 0% · edited_region_iou=0.8080</td></tr><tr><td>真实照片 · 指称定位</td><td>ground</td><td class="num">64</td><td class="num good">93.8%</td><td class="detail">mean IoU · iou=0.8096</td></tr><tr><td>合成 held-out · edit</td><td>edit</td><td class="num">32</td><td class="num good">100.0%</td><td class="detail">24/32 逐像素一致 · preserve L1 0 · edited_region_iou=1.0000</td></tr><tr><td>合成 held-out · ground</td><td>ground</td><td class="num">32</td><td class="num good">100.0%</td><td class="detail">mean IoU · iou=0.9900</td></tr><tr><td>合成 held-out · QA</td><td>qa</td><td class="num">32</td><td class="num good">96.9%</td><td class="detail">count 16/16 · leftmost color 15/16</td></tr><tr><td>受控像素操作</td><td>edit</td><td class="num">320</td><td class="num good">100.0%</td><td class="detail">320/320 逐像素一致 · edit_l1=0.0000</td></tr><tr><td>原始 MagicBrush 语义编辑</td><td>edit</td><td class="num">64</td><td class="num bad">0.0%</td><td class="detail">valid output 36/64 · edit L1 0.2232 · edited_region_iou=0.1395</td></tr></tbody></table></div>
+<p class="note">edit 成功要求：目标区域误差低、区域外保持、且相对“不改图”有提升；指称区域着色还要求 edited-region IoU ≥ 0.5。ground 用 IoU ≥ 0.5，QA 用精确答案。所有失败和无效结果都保留在分母与完整案例里。这些是转换后的小规模 smoke 结果，不是官方 leaderboard 分数。</p>
+</section>
+<section id="protocol"><h2>任务协议：让模型输出可执行程序</h2>
+<p class="lede">没有给 Qwen 加图像生成头，也没有训练扩散模型或 VAE。模型是一个普通的视觉语言模型，输入 RGB 图像 + 指令，输出三类结构化结果之一：</p>
+<div class="grid3">
+<article class="card"><span class="badge">EDIT</span><h3>可执行 Python</h3>
+<p>读取 <code>input.png</code>，用 PIL / NumPy 改像素，保存 <code>output.png</code>。评测器真的执行这段代码，再和 target 比较。</p>
+<pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open("input.png").convert("RGB"))
+x1, y1, x2, y2 = 187, 42, 256, 89
+patch = np.array(Image.fromarray(
+    a[y1:y2, x1:x2]).convert("HSV"))
+patch[..., 0] = 0
+patch[..., 1] = 160
+a[y1:y2, x1:x2] = np.array(
+    Image.fromarray(patch).convert("RGB"))
+Image.fromarray(a).save("output.png")</pre></article>
+<article class="card"><span class="badge">GROUND</span><h3>JSON bbox</h3>
+<p>只输出坐标，不输出图像。评测用 IoU ≥ 0.5 判定成功。</p>
+<pre>{"bbox": [187, 42, 256, 89]}</pre></article>
+<article class="card"><span class="badge">QA</span><h3>短答案</h3>
+<p>输出 JSON 短答案，用于计数、颜色、位置等图像理解检查。</p>
+<pre>{"answer": 4}
+{"answer": "green"}</pre></article>
+</div>
+<div class="callout">关键点：图像像素永远不进入语言 token。模型学的是“看图 → 写程序 / 写坐标 / 写答案”，而不是“看图 → 回归像素”。</div>
+</section>
+<section id="edit"><h2>真实照片 · 指称区域着色 <span class="count">64 cases · 92.2%</span></h2>
+<p class="lede">输入是一张真实 COCO 照片和一句指称描述。模型必须输出可执行 Python：先定位被指称物体的矩形区域，再在该区域内做 HSV 着色，区域外像素保持不变。没有 mask、bbox 或 target 进入模型输入。成功需要同时满足区域 IoU ≥ 0.5 与低像素误差，因此会出现 prediction 与 target 几乎一致、但预测框偏小导致 IoU 不达标而判 FAIL 的情况（见下方 0.424 的例子）。</p>
+<div class="filters" data-target="cases"><button class="on" data-filter="all">全部</button><button data-filter="pass">只看成功</button><button data-filter="fail">只看失败</button></div><div class="cases"><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">roi_refcoco_val_308201_red</span><span class="metric">IoU 0.977 · edit L1 0.0030 · preserve L1 0.0008</span></div><p class="instr">EDIT: Tint the rectangular bounding-box region of the object described as &quot;green vegetable with leaves&quot; red. Preserve brightness and all pixels outside that region.</p><div class="triplet"><figure><img src="assets/edit64/roi_refcoco_val_308201_red_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_308201_red_target.png" alt="Target" loading="lazy"><figcaption>Target</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_308201_red_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div><details><summary>模型实际执行的代码</summary><pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open(&quot;input.png&quot;).convert(&quot;RGB&quot;))
+x1, y1, x2, y2 = (104, 104, 238, 221)
+patch = np.array(Image.fromarray(a[y1:y2, x1:x2]).convert(&quot;HSV&quot;))
+patch[..., 0] = 0
+patch[..., 1] = 160
+a[y1:y2, x1:x2] = np.array(Image.fromarray(patch, mode=&quot;HSV&quot;).convert(&quot;RGB&quot;))
+Image.fromarray(a).save(&quot;output.png&quot;)</pre></details></article><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">roi_refcoco_val_1709303_blue</span><span class="metric">IoU 0.972 · edit L1 0.0068 · preserve L1 0.0001</span></div><p class="instr">EDIT: Tint the rectangular bounding-box region of the object described as &quot;far left guy&quot; blue. Preserve brightness and all pixels outside that region.</p><div class="triplet"><figure><img src="assets/edit64/roi_refcoco_val_1709303_blue_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_1709303_blue_target.png" alt="Target" loading="lazy"><figcaption>Target</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_1709303_blue_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div><details><summary>模型实际执行的代码</summary><pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open(&quot;input.png&quot;).convert(&quot;RGB&quot;))
+x1, y1, x2, y2 = (0, 89, 70, 195)
+patch = np.array(Image.fromarray(a[y1:y2, x1:x2]).convert(&quot;HSV&quot;))
+patch[..., 0] = 170
+patch[..., 1] = 160
+a[y1:y2, x1:x2] = np.array(Image.fromarray(patch, mode=&quot;HSV&quot;).convert(&quot;RGB&quot;))
+Image.fromarray(a).save(&quot;output.png&quot;)</pre></details></article><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">roi_refcoco_val_592560_blue</span><span class="metric">IoU 0.954 · edit L1 0.0087 · preserve L1 0.0000</span></div><p class="instr">EDIT: Tint the rectangular bounding-box region of the object described as &quot;zebra on left&quot; blue. Preserve brightness and all pixels outside that region.</p><div class="triplet"><figure><img src="assets/edit64/roi_refcoco_val_592560_blue_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_592560_blue_target.png" alt="Target" loading="lazy"><figcaption>Target</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_592560_blue_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div><details><summary>模型实际执行的代码</summary><pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open(&quot;input.png&quot;).convert(&quot;RGB&quot;))
+x1, y1, x2, y2 = (25, 37, 234, 221)
+patch = np.array(Image.fromarray(a[y1:y2, x1:x2]).convert(&quot;HSV&quot;))
+patch[..., 0] = 170
+patch[..., 1] = 160
+a[y1:y2, x1:x2] = np.array(Image.fromarray(patch, mode=&quot;HSV&quot;).convert(&quot;RGB&quot;))
+Image.fromarray(a).save(&quot;output.png&quot;)</pre></details></article><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">roi_refcoco_val_2162742_red</span><span class="metric">IoU 0.000 · edit L1 0.1825 · preserve L1 0.0137</span></div><p class="instr">EDIT: Tint the rectangular bounding-box region of the object described as &quot;gurl&quot; red. Preserve brightness and all pixels outside that region.</p><div class="triplet"><figure><img src="assets/edit64/roi_refcoco_val_2162742_red_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_2162742_red_target.png" alt="Target" loading="lazy"><figcaption>Target</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_2162742_red_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div><details><summary>模型实际执行的代码</summary><pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open(&quot;input.png&quot;).convert(&quot;RGB&quot;))
+x1, y1, x2, y2 = (178, 107, 213, 256)
+patch = np.array(Image.fromarray(a[y1:y2, x1:x2]).convert(&quot;HSV&quot;))
+patch[..., 0] = 0
+patch[..., 1] = 160
+a[y1:y2, x1:x2] = np.array(Image.fromarray(patch, mode=&quot;HSV&quot;).convert(&quot;RGB&quot;))
+Image.fromarray(a).save(&quot;output.png&quot;)</pre></details></article><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">roi_refcoco_val_2160383_green</span><span class="metric">IoU 0.000 · edit L1 0.2544 · preserve L1 0.0170</span></div><p class="instr">EDIT: Tint the rectangular bounding-box region of the object described as &quot;man in jersey&quot; green. Preserve brightness and all pixels outside that region.</p><div class="triplet"><figure><img src="assets/edit64/roi_refcoco_val_2160383_green_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_2160383_green_target.png" alt="Target" loading="lazy"><figcaption>Target</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_2160383_green_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div><details><summary>模型实际执行的代码</summary><pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open(&quot;input.png&quot;).convert(&quot;RGB&quot;))
+x1, y1, x2, y2 = (173, 82, 224, 186)
+patch = np.array(Image.fromarray(a[y1:y2, x1:x2]).convert(&quot;HSV&quot;))
+patch[..., 0] = 85
+patch[..., 1] = 160
+a[y1:y2, x1:x2] = np.array(Image.fromarray(patch, mode=&quot;HSV&quot;).convert(&quot;RGB&quot;))
+Image.fromarray(a).save(&quot;output.png&quot;)</pre></details></article><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">roi_refcoco_val_1612703_red</span><span class="metric">IoU 0.424 · edit L1 0.0000 · preserve L1 0.0083</span></div><p class="instr">EDIT: Tint the rectangular bounding-box region of the object described as &quot;BOTTOM R.&quot; red. Preserve brightness and all pixels outside that region.</p><div class="triplet"><figure><img src="assets/edit64/roi_refcoco_val_1612703_red_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_1612703_red_target.png" alt="Target" loading="lazy"><figcaption>Target</figcaption></figure><figure><img src="assets/edit64/roi_refcoco_val_1612703_red_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div><details><summary>模型实际执行的代码</summary><pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open(&quot;input.png&quot;).convert(&quot;RGB&quot;))
+x1, y1, x2, y2 = (151, 127, 256, 224)
+patch = np.array(Image.fromarray(a[y1:y2, x1:x2]).convert(&quot;HSV&quot;))
+patch[..., 0] = 0
+patch[..., 1] = 160
+a[y1:y2, x1:x2] = np.array(Image.fromarray(patch, mode=&quot;HSV&quot;).convert(&quot;RGB&quot;))
+Image.fromarray(a).save(&quot;output.png&quot;)</pre></details></article></div>
+<details class="gridbox"><summary>20 例抽样网格（input / target / prediction）</summary>
+<div class="grid-scroll"><img src="assets/edit64/grid.jpg" alt="edit grid" loading="lazy"></div></details>
+</section>
+<section id="grounding"><h2>真实照片 · 指称定位 <span class="count">64 cases · 93.8%</span></h2>
+<p class="lede">模型只输出 JSON bbox。绿框是 RefCOCO 真值，红框是模型预测；IoU ≥ 0.5 记为成功。这里没有使用官方 RefCOCO 全量协议，只是把同一批照片转成统一的 256×256 像素任务做 smoke 对比。</p>
+<div class="filters" data-target="cases"><button class="on" data-filter="all">全部</button><button data-filter="pass">只看成功</button><button data-filter="fail">只看失败</button></div><div class="cases"><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">refcoco_val_514243</span><span class="metric">IoU 0.978</span></div><p class="instr">GROUND: Locate the object described as: lady on right</p><div class="triplet two"><figure><img src="assets/ground64/refcoco_val_514243_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/ground64/refcoco_val_514243_overlay.png" alt="绿=GT · 红=预测" loading="lazy"><figcaption>绿=GT · 红=预测</figcaption></figure></div></article><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">refcoco_val_308201</span><span class="metric">IoU 0.977</span></div><p class="instr">GROUND: Locate the object described as: green vegetable with leaves</p><div class="triplet two"><figure><img src="assets/ground64/refcoco_val_308201_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/ground64/refcoco_val_308201_overlay.png" alt="绿=GT · 红=预测" loading="lazy"><figcaption>绿=GT · 红=预测</figcaption></figure></div></article><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">refcoco_val_1709303</span><span class="metric">IoU 0.972</span></div><p class="instr">GROUND: Locate the object described as: far left guy</p><div class="triplet two"><figure><img src="assets/ground64/refcoco_val_1709303_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/ground64/refcoco_val_1709303_overlay.png" alt="绿=GT · 红=预测" loading="lazy"><figcaption>绿=GT · 红=预测</figcaption></figure></div></article><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">refcoco_val_469475</span><span class="metric">IoU 0.951</span></div><p class="instr">GROUND: Locate the object described as: green woman</p><div class="triplet two"><figure><img src="assets/ground64/refcoco_val_469475_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/ground64/refcoco_val_469475_overlay.png" alt="绿=GT · 红=预测" loading="lazy"><figcaption>绿=GT · 红=预测</figcaption></figure></div></article><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">refcoco_val_507574</span><span class="metric">IoU 0.949</span></div><p class="instr">GROUND: Locate the object described as: U2! Man on left</p><div class="triplet two"><figure><img src="assets/ground64/refcoco_val_507574_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/ground64/refcoco_val_507574_overlay.png" alt="绿=GT · 红=预测" loading="lazy"><figcaption>绿=GT · 红=预测</figcaption></figure></div></article><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">refcoco_val_592560</span><span class="metric">IoU 0.948</span></div><p class="instr">GROUND: Locate the object described as: zebra on left</p><div class="triplet two"><figure><img src="assets/ground64/refcoco_val_592560_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/ground64/refcoco_val_592560_overlay.png" alt="绿=GT · 红=预测" loading="lazy"><figcaption>绿=GT · 红=预测</figcaption></figure></div></article><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">refcoco_val_2160383</span><span class="metric">IoU 0.000</span></div><p class="instr">GROUND: Locate the object described as: man in jersey</p><div class="triplet two"><figure><img src="assets/ground64/refcoco_val_2160383_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/ground64/refcoco_val_2160383_overlay.png" alt="绿=GT · 红=预测" loading="lazy"><figcaption>绿=GT · 红=预测</figcaption></figure></div></article><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">refcoco_val_99436</span><span class="metric">IoU 0.236</span></div><p class="instr">GROUND: Locate the object described as: chair left most</p><div class="triplet two"><figure><img src="assets/ground64/refcoco_val_99436_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/ground64/refcoco_val_99436_overlay.png" alt="绿=GT · 红=预测" loading="lazy"><figcaption>绿=GT · 红=预测</figcaption></figure></div></article><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">refcoco_val_1940800</span><span class="metric">IoU 0.404</span></div><p class="instr">GROUND: Locate the object described as: bottom left portion of couch on left</p><div class="triplet two"><figure><img src="assets/ground64/refcoco_val_1940800_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/ground64/refcoco_val_1940800_overlay.png" alt="绿=GT · 红=预测" loading="lazy"><figcaption>绿=GT · 红=预测</figcaption></figure></div></article></div>
+</section>
+<section id="synthetic"><h2>合成 held-out · edit / ground / QA <span class="count">96 cases</span></h2>
+<p class="lede">合成 256×256 场景，训练时完全没见过。三类任务共 96 例：32 edit（100%）、32 ground（100%，mean IoU 0.990）、32 QA（96.9%）。edit 中有 24/32 与目标逐像素完全一致。</p>
+<div class="cases"><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">tiny_smoke_v1_test_00000_qa</span><span class="metric">answer 4 · task QA</span></div><p class="instr">QA: How many colored objects are in this image?</p><div class="triplet two"><figure><img src="assets/tiny/tiny_smoke_v1_test_00000_qa_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><div class="answerbox"><span class="answerlabel">期望输出</span><code>{&quot;answer&quot;: 4}</code></div></div></article><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">tiny_smoke_v1_test_00005_qa</span><span class="metric">answer &#x27;purple&#x27; · task QA</span></div><p class="instr">QA: What is the color of the leftmost object?</p><div class="triplet two"><figure><img src="assets/tiny/tiny_smoke_v1_test_00005_qa_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><div class="answerbox"><span class="answerlabel">期望输出</span><code>{&quot;answer&quot;: &quot;purple&quot;}</code></div></div></article><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">tiny_smoke_v1_test_00012_qa</span><span class="metric">answer 2 · task QA</span></div><p class="instr">QA: How many colored objects are in this image?</p><div class="triplet two"><figure><img src="assets/tiny/tiny_smoke_v1_test_00012_qa_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><div class="answerbox"><span class="answerlabel">期望输出</span><code>{&quot;answer&quot;: 2}</code></div></div></article></div>
+<details class="gridbox"><summary>20 例合成 edit 抽样网格</summary>
+<div class="grid-scroll"><img src="assets/tiny/grid.jpg" alt="tiny grid" loading="lazy"></div></details>
+</section>
+<section id="controlled"><h2>受控像素操作 · 320 cases <span class="count">100% · 全部逐像素一致</span></h2>
+<p class="lede">这一组不是语义编辑，而是明确定义的确定性操作：整图翻转、亮度 ±20、画指定矩形、灰度等。它证明模型能稳定地把“指令 → 可执行程序 → 像素”这条链路跑通，但不能代表开放式语义编辑能力。</p>
+<div class="cases"><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">magic_dev_140513_flip</span><span class="metric">pixel exact</span></div><p class="instr">EDIT: Flip the entire image horizontally.</p><div class="triplet"><figure><img src="assets/photo320/magic_dev_140513_flip_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/photo320/magic_dev_140513_flip_target.png" alt="Target" loading="lazy"><figcaption>Target</figcaption></figure><figure><img src="assets/photo320/magic_dev_140513_flip_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div></article><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">magic_dev_140513_brighten</span><span class="metric">pixel exact</span></div><p class="instr">EDIT: Add 20 to every RGB channel value, clipping to [0,255].</p><div class="triplet"><figure><img src="assets/photo320/magic_dev_140513_brighten_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/photo320/magic_dev_140513_brighten_target.png" alt="Target" loading="lazy"><figcaption>Target</figcaption></figure><figure><img src="assets/photo320/magic_dev_140513_brighten_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div></article><article class="case" data-ok="1"><div class="case-head"><span class="pill ok">PASS</span><span class="mono">magic_dev_140513_red_patch</span><span class="metric">pixel exact</span></div><p class="instr">EDIT: Draw a solid red rectangle at x=32, y=40, width=40, height=32.</p><div class="triplet"><figure><img src="assets/photo320/magic_dev_140513_red_patch_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/photo320/magic_dev_140513_red_patch_target.png" alt="Target" loading="lazy"><figcaption>Target</figcaption></figure><figure><img src="assets/photo320/magic_dev_140513_red_patch_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div></article></div>
+<details class="gridbox"><summary>20 例受控操作抽样网格</summary>
+<div class="grid-scroll"><img src="assets/photo320/grid.jpg" alt="photo grid" loading="lazy"></div></details>
+</section>
+<section id="failure"><h2 class="badhead">原始 MagicBrush 语义编辑 · 0 / 64</h2>
+<p class="lede">这是最重要的负结果。输入照片和原始 MagicBrush 指令，模型被要求做“把墙上的纸变成镜子”“把棒球棒换成光剑”这类开放式语义编辑。结果：<strong>0/64 成功</strong>，只有 36/64 产出了可执行代码，平均区域 IoU 0.1395，edit L1 0.2232。失败样例和实际代码全部保留在这里。</p>
+<div class="callout bad">图像对本身不是程序监督。没有把 target 图像喂给模型，也没有训练一个图像生成头；这组结果说明“会写像素程序”还不等于“会做开放式语义编辑”。</div>
+<div class="cases"><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">magic_dev_319096</span><span class="metric">IoU 0.000 · L1 0.212</span></div><p class="instr">EDIT: Make the piece of paper hanging on the wall a mirror</p><div class="triplet"><figure><img src="assets/magicbrush/magic_dev_319096_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/magicbrush/magic_dev_319096_target.png" alt="MagicBrush target" loading="lazy"><figcaption>MagicBrush target</figcaption></figure><figure><img src="assets/magicbrush/magic_dev_319096_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div><details><summary>模型实际执行的代码</summary><pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open(&quot;input.png&quot;).convert(&quot;RGB&quot;))
+x1, y1, x2, y2 = (49, 0, 109, 66)
+patch = np.array(Image.fromarray(a[y1:y2, x1:x2]).convert(&quot;RGB&quot;))
+patch = np.array(Image.fromarray(patch).convert(&quot;RGB&quot;))
+patch = np.array(Image.fromarray(patch).convert(&quot;RGB&quot;))
+a[y1:y2, x1:x2] = np.array(Image.fromarray(patch).convert(&quot;RGB&quot;))
+Image.fromarray(a).save(&quot;output.png&quot;)</pre></details></article><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">magic_dev_415314</span><span class="metric">IoU 0.000 · L1 0.177</span></div><p class="instr">EDIT: replace the baseball bat for a laser sword</p><div class="triplet"><figure><img src="assets/magicbrush/magic_dev_415314_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/magicbrush/magic_dev_415314_target.png" alt="MagicBrush target" loading="lazy"><figcaption>MagicBrush target</figcaption></figure><figure><img src="assets/magicbrush/magic_dev_415314_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div><details><summary>模型实际执行的代码</summary><pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open(&quot;input.png&quot;).convert(&quot;RGB&quot;))
+mask = np.all(a == [160, 64, 32], axis=-1)
+a[mask] = [0, 224, 208]
+Image.fromarray(a.astype(np.uint8)).save(&quot;output.png&quot;)</pre></details></article><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">magic_dev_75065</span><span class="metric">IoU 0.063 · L1 0.144</span></div><p class="instr">EDIT: make the cow smile</p><div class="triplet"><figure><img src="assets/magicbrush/magic_dev_75065_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/magicbrush/magic_dev_75065_target.png" alt="MagicBrush target" loading="lazy"><figcaption>MagicBrush target</figcaption></figure><figure><img src="assets/magicbrush/magic_dev_75065_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div><details><summary>模型实际执行的代码</summary><pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open(&quot;input.png&quot;).convert(&quot;RGB&quot;))
+x1, y1, x2, y2 = (114, 85, 227, 211)
+patch = np.array(Image.fromarray(a[y1:y2, x1:x2]).convert(&quot;HSV&quot;))
+patch[..., 0] = 160
+patch[..., 1] = 160
+a[y1:y2, x1:x2] = np.array(Image.fromarray(patch, mode=&quot;HSV&quot;).convert(&quot;RGB&quot;))
+Image.fromarray(a).save(&quot;output.png&quot;)</pre></details></article><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">magic_dev_483587</span><span class="metric">IoU 0.828 · L1 0.257</span></div><p class="instr">EDIT: change the dog for a cat</p><div class="triplet"><figure><img src="assets/magicbrush/magic_dev_483587_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/magicbrush/magic_dev_483587_target.png" alt="MagicBrush target" loading="lazy"><figcaption>MagicBrush target</figcaption></figure><figure><img src="assets/magicbrush/magic_dev_483587_pred.png" alt="Prediction" loading="lazy"><figcaption>Prediction</figcaption></figure></div><details><summary>模型实际执行的代码</summary><pre>import numpy as np
+from PIL import Image
+a = np.array(Image.open(&quot;input.png&quot;).convert(&quot;RGB&quot;))
+x1, y1, x2, y2 = (0, 141, 156, 253)
+patch = np.array(Image.fromarray(a[y1:y2, x1:x2]).convert(&quot;HSV&quot;))
+patch[..., 0] = 0
+patch[..., 1] = 160
+a[y1:y2, x1:x2] = np.array(Image.fromarray(patch, mode=&quot;HSV&quot;).convert(&quot;RGB&quot;))
+Image.fromarray(a).save(&quot;output.png&quot;)</pre></details></article><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">magic_dev_140513</span><span class="metric">无有效输出 · ValueError: shape mismatch: value array of shape (0,3,3) could not be broadcast </span></div><p class="instr">EDIT: edit some mountains in the background</p><div class="triplet"><figure><img src="assets/magicbrush/magic_dev_140513_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/magicbrush/magic_dev_140513_target.png" alt="MagicBrush target" loading="lazy"><figcaption>MagicBrush target</figcaption></figure><figure><div class="missing">没有产出有效图片</div><figcaption>Prediction</figcaption></figure></div></article><article class="case" data-ok="0"><div class="case-head"><span class="pill bad">FAIL</span><span class="mono">magic_dev_393224</span><span class="metric">无有效输出 · ValueError: shape mismatch: value array of shape (162,3,3) could not be broadcas</span></div><p class="instr">EDIT: What if the man was bald</p><div class="triplet"><figure><img src="assets/magicbrush/magic_dev_393224_input.png" alt="Input" loading="lazy"><figcaption>Input</figcaption></figure><figure><img src="assets/magicbrush/magic_dev_393224_target.png" alt="MagicBrush target" loading="lazy"><figcaption>MagicBrush target</figcaption></figure><figure><div class="missing">没有产出有效图片</div><figcaption>Prediction</figcaption></figure></div></article></div>
+</section>
+<section id="training"><h2>训练数据与曲线</h2>
+<p class="lede">最终阶段：19,776 条混合记录，5,000 次 optimizer update，batch size 1 × 梯度累积 4，rank-8 语言 LoRA，只对 assistant token 计算交叉熵。单卡 H20，实际训练约 97 分钟，峰值显存 22.92 GiB。每个阶段都从上一阶段权重 warm start，但使用新的 optimizer。</p>
+<div class="scroll datatable"><table><thead><tr><th>数据来源</th><th>任务</th><th>监督信号</th></tr></thead><tbody>
+<tr><td>RefCOCO referring expressions + COCO 照片</td><td>ground</td><td>JSON bbox</td></tr>
+<tr><td>由训练集 box 注释生成的确切 HSV 局部着色</td><td>edit</td><td>可执行 PIL/NumPy 程序</td></tr>
+<tr><td>合成 256×256 场景</td><td>edit / ground / QA</td><td>程序 / bbox / 短答案</td></tr>
+<tr><td>MagicBrush 源照片上的受控确定性操作</td><td>edit</td><td>程序 + 逐像素 target</td></tr>
+<tr><td>原始 MagicBrush 图像对</td><td>只用于独立语义编辑评测</td><td>target 图仅作评测，不作为程序监督</td></tr>
+</tbody></table></div>
+<p class="note">模型输入永远不包含 target bbox、mask 或目标图。图像以 PNG 保存，像素另有可逆的 <code>uint32 0xRRGGBB</code> NPZ 校验；稠密像素值不会序列化进语言 token。</p>
+<figure class="widefig"><img src="assets/training_curves.png" alt="training curves" loading="lazy">
+<figcaption>各阶段数据混合不同，因此曲线只用于确认训练稳定，不能当作同分布对比。</figcaption></figure>
+<div class="callout">27B 对照：<code>Qwen/Qwen3.8-27B</code> @ <code>37561816e66b5b9153b1b64c10968c18c1e6f4a0</code> 用同一 1,600 条混合数据跑了 250-step smoke。它的起点是 post-trained checkpoint，而 9B 主模型从 Base 开始，所以这不是纯参数规模消融。</div>
+</section>
+<section id="audit"><h2>完整性审计与已修正的错误</h2>
+<div class="auditgrid"><ul class="checklist"><li class="okitem"><span>✓</span>所有 cohort 的 case ID 完整</li><li class="okitem"><span>✓</span>最终 adapter 权重真实加载</li><li class="okitem"><span>✓</span>loss / gradient 全部有限</li><li class="okitem"><span>✓</span>每次评测都重新加载 adapter</li><li class="okitem"><span>✓</span>预测 PNG 与 packed pixels 一致</li><li class="okitem"><span>✓</span>保存了模型实际执行的代码</li><li class="okitem"><span>✓</span>请求颜色语义正确（v1 bug 修复后）</li><li class="okitem"><span>✓</span>质量门通过</li></ul>
+<div class="auditfacts"><div><strong>452</strong><span>验证过的 prediction PNG / NPZ 对</span></div>
+<div><strong>8 / 8</strong><span>审计布尔项全部为 true</span></div>
+<div><strong>5,000</strong><span>最终阶段 optimizer steps</span></div></div></div>
+<div class="callout warn"><strong>V1 HSV 错误已作废：</strong>早期局部着色数据把 HSV 数组直接传给 <code>Image.fromarray</code>，没有指定 <code>mode="HSV"</code>，导致颜色语义错误。所有 v1 tint 分数已标记为 invalid 并归档；最终结果全部来自显式 HSV mode 的 v2 数据，并通过独立已知 RGB 检查。另有一例普通 HSV 程序首次超过 12 秒执行启动超时，冻结输出在 45 秒限制下复核，原始超时记录与预测哈希均保留。</div>
+</section>
+<section id="repro"><h2>复现与产物</h2>
+<div class="grid2">
+<article class="card"><h3>模型与训练</h3>
+<ul class="plain">
+<li>Base：<code>Qwen/Qwen3.5-9B-Base</code> @ <code>68c46c4b3498877f3ef123c856ecfde50c39f404</code></li>
+<li>LoRA：rank 8，仅语言侧，assistant-token CE</li>
+<li>最终阶段：19,776 records · 5,000 steps · 1×H20 · 97 min · 22.92 GiB</li>
+<li>Adapter SHA256：<code class="tinycode">a2c1358383fdc8233f09020b9dfa1cd172e8b809d75695672b671f5d362be669</code></li>
+</ul></article>
+<article class="card"><h3>单图推理</h3>
+<pre>cd qwen_image_edit_smoke
+CUDA_VISIBLE_DEVICES=0 python infer.py \
+  --image /path/to/photo.png \
+  --instruction 'Tint the rectangular bounding-box region of the white pot in the upper right blue. Preserve brightness.' \
+  --adapter outputs/final/adapter \
+  --output outputs/my_demo</pre></article>
+</div>
+<div class="callout">推理 CLI 不接收 target、bbox 或 mask；它保存模型原始回答、实际执行代码、编辑后的 PNG、packed pixels 和对比图。完整方法见实验目录的 <code>EXPERIMENT.md</code>，逐案例证据见本地 <code>outputs/report.html</code>。公开页面只放精选案例，完整 3,488 张图与失败记录保留在工作区。</div>
+<div class="callout warn"><strong>边界：</strong>所有任务都是 256×256 单轮输入；LoRA 只挂在语言侧；指称着色和受控操作是明确定义的转换任务，不是官方 benchmark；开放式语义编辑仍是未解决项（MagicBrush 0/64）。这个实验证明的是“能训通、能执行、能定位、能按指令改像素”，不是“已经学会通用图像编辑”。</div>
+</section>
+<footer>由实验产物自动生成 · 2026-11-17 03:21 UTC · <a href="https://siyuanmacs.github.io/pixelworld/">PixelWorld</a> · <a href="https://siyuanmacs.github.io/">Home</a></footer>
+</main>
+<script>
+document.querySelectorAll('.filters').forEach(function(bar){
+  bar.addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    bar.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
+    var mode=b.dataset.filter;
+    bar.parentElement.querySelectorAll('.case').forEach(function(c){
+      c.style.display=(mode==='all'||(mode==='pass'&&c.dataset.ok==='1')||(mode==='fail'&&c.dataset.ok==='0'))?'':'none';
+    });
+  });
+});
+</script>
+</body></html>
