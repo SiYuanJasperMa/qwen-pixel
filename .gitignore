@@ -1,7 +1,14 @@
 data/
 outputs/
-pages_branch/
 models/
+checkpoints/
+.venv*/
 __pycache__/
-*.pyc
-.venv/
+*.py[cod]
+.pytest_cache/
+.env*
+*.key
+*.token
+*.safetensors
+*.pt
+*.npy

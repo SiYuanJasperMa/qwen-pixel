@@ -1,0 +1,568 @@
+{
+  "modes": {
+    "image_only": {
+      "completed": 64,
+      "expected": 64,
+      "api_failed": 0,
+      "judge_pending": 0,
+      "evaluated": 64,
+      "passed": 46,
+      "executed": 63,
+      "format_or_code_failures": 1,
+      "semantic_failures": 17,
+      "mean_input_tokens": 262.609375,
+      "mean_output_tokens": 4159.421875,
+      "total_input_tokens": 16807,
+      "total_output_tokens": 266203,
+      "mean_reasoning_tokens": 2189.71875,
+      "pixel_metrics": {
+        "evaluated": 63,
+        "mean_l1": 0.030179460713591812,
+        "mean_no_op_l1": 0.023070850926968787,
+        "better_than_no_op": 19,
+        "protocol": "local aligned-resized RGB L1; not official benchmark evaluation"
+      }
+    },
+    "image_rgb": {
+      "completed": 64,
+      "expected": 64,
+      "api_failed": 0,
+      "judge_pending": 0,
+      "evaluated": 64,
+      "passed": 50,
+      "executed": 63,
+      "format_or_code_failures": 1,
+      "semantic_failures": 13,
+      "mean_input_tokens": 61149.046875,
+      "mean_output_tokens": 4885.140625,
+      "total_input_tokens": 3913539,
+      "total_output_tokens": 312649,
+      "mean_reasoning_tokens": 2880.3125,
+      "pixel_metrics": {
+        "evaluated": 63,
+        "mean_l1": 0.033157204847647954,
+        "mean_no_op_l1": 0.02326399025817712,
+        "better_than_no_op": 21,
+        "protocol": "local aligned-resized RGB L1; not official benchmark evaluation"
+      }
+    }
+  },
+  "paired_evaluated": 64,
+  "image_only_passed": 46,
+  "image_rgb_passed": 50,
+  "rgb_only_wins": 10,
+  "image_only_wins": 6,
+  "net_gain_pp": 6.25,
+  "mcnemar_exact_p": 0.454498291015625,
+  "paired_bootstrap_95ci_pp": [
+    -6.25,
+    18.75
+  ],
+  "by_dataset": {
+    "magicbrush": {
+      "paired_evaluated": 16,
+      "image_only_passed": 7,
+      "image_rgb_passed": 10,
+      "rgb_only_wins": 3,
+      "image_only_wins": 0,
+      "net_gain_pp": 18.75,
+      "mcnemar_exact_p": 0.25,
+      "paired_bootstrap_95ci_pp": [
+        0.0,
+        37.5
+      ]
+    },
+    "maskedit_cn": {
+      "paired_evaluated": 8,
+      "image_only_passed": 7,
+      "image_rgb_passed": 7,
+      "rgb_only_wins": 0,
+      "image_only_wins": 0,
+      "net_gain_pp": 0.0,
+      "mcnemar_exact_p": 1.0,
+      "paired_bootstrap_95ci_pp": [
+        0.0,
+        0.0
+      ]
+    },
+    "maskedit_en": {
+      "paired_evaluated": 8,
+      "image_only_passed": 8,
+      "image_rgb_passed": 6,
+      "rgb_only_wins": 0,
+      "image_only_wins": 2,
+      "net_gain_pp": -25.0,
+      "mcnemar_exact_p": 0.5,
+      "paired_bootstrap_95ci_pp": [
+        -62.5,
+        0.0
+      ]
+    },
+    "sciforma": {
+      "paired_evaluated": 16,
+      "image_only_passed": 11,
+      "image_rgb_passed": 14,
+      "rgb_only_wins": 5,
+      "image_only_wins": 2,
+      "net_gain_pp": 18.75,
+      "mcnemar_exact_p": 0.453125,
+      "paired_bootstrap_95ci_pp": [
+        -12.5,
+        50.0
+      ]
+    },
+    "ultraedit": {
+      "paired_evaluated": 16,
+      "image_only_passed": 13,
+      "image_rgb_passed": 13,
+      "rgb_only_wins": 2,
+      "image_only_wins": 2,
+      "net_gain_pp": 0.0,
+      "mcnemar_exact_p": 1.0,
+      "paired_bootstrap_95ci_pp": [
+        -25.0,
+        25.0
+      ]
+    }
+  },
+  "token_comparison": {
+    "extra_mean_input_tokens": 60886.4375,
+    "extra_mean_output_tokens": 725.71875,
+    "cache_discount_assumed": false,
+    "price_note": "No verified account prices; image tokens/fees may not be fully exposed by proxy usage."
+  },
+  "paired_quality_scores": {
+    "image_only": {
+      "instruction_adherence": 4.048387096774194,
+      "preservation": 4.532258064516129,
+      "visual_quality": 3.7096774193548385
+    },
+    "image_rgb": {
+      "instruction_adherence": 4.225806451612903,
+      "preservation": 4.629032258064516,
+      "visual_quality": 3.693548387096774
+    },
+    "paired_judged": 62
+  },
+  "paired_pixel_metrics": {
+    "paired_measured": 62,
+    "protocol": "local RGB L1; generated output resized to source only if dimensions differ",
+    "image_only": {
+      "mean_l1": 0.03007446823129055,
+      "better_than_no_op": 19
+    },
+    "image_rgb": {
+      "mean_l1": 0.03245770236577711,
+      "better_than_no_op": 21
+    },
+    "mean_no_op_l1": 0.022872107073424325
+  },
+  "judge_model": "gpt-5.5-2026-04-24",
+  "resized_output_cases": [
+    {
+      "id": "sciforma_s2_650",
+      "mode": "image_only",
+      "source_input_size": [
+        128,
+        128
+      ],
+      "actual_output_size": [
+        1536,
+        1536
+      ],
+      "judge_source_resampling": "nearest",
+      "pixel_metric_output_resampling": "lanczos",
+      "code_or_output_changed": false
+    }
+  ],
+  "complete": true,
+  "pairs": [
+    {
+      "id": "magicbrush_dev_100081_2",
+      "dataset": "magicbrush",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "magicbrush_dev_108871_1",
+      "dataset": "magicbrush",
+      "image_pass": false,
+      "rgb_pass": false
+    },
+    {
+      "id": "magicbrush_dev_140513_1",
+      "dataset": "magicbrush",
+      "image_pass": false,
+      "rgb_pass": true
+    },
+    {
+      "id": "magicbrush_dev_177824_2",
+      "dataset": "magicbrush",
+      "image_pass": false,
+      "rgb_pass": true
+    },
+    {
+      "id": "magicbrush_dev_219590_2",
+      "dataset": "magicbrush",
+      "image_pass": false,
+      "rgb_pass": true
+    },
+    {
+      "id": "magicbrush_dev_237569_2",
+      "dataset": "magicbrush",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "magicbrush_dev_273560_3",
+      "dataset": "magicbrush",
+      "image_pass": false,
+      "rgb_pass": false
+    },
+    {
+      "id": "magicbrush_dev_294973_2",
+      "dataset": "magicbrush",
+      "image_pass": false,
+      "rgb_pass": false
+    },
+    {
+      "id": "magicbrush_dev_315319_1",
+      "dataset": "magicbrush",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "magicbrush_dev_381199_2",
+      "dataset": "magicbrush",
+      "image_pass": false,
+      "rgb_pass": false
+    },
+    {
+      "id": "magicbrush_dev_393375_1",
+      "dataset": "magicbrush",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "magicbrush_dev_415314_1",
+      "dataset": "magicbrush",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "magicbrush_dev_450129_1",
+      "dataset": "magicbrush",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "magicbrush_dev_524924_2",
+      "dataset": "magicbrush",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "magicbrush_dev_54492_3",
+      "dataset": "magicbrush",
+      "image_pass": false,
+      "rgb_pass": false
+    },
+    {
+      "id": "magicbrush_dev_55458_1",
+      "dataset": "magicbrush",
+      "image_pass": false,
+      "rgb_pass": false
+    },
+    {
+      "id": "maskedit_cn_s0_45",
+      "dataset": "maskedit_cn",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_cn_s0_67",
+      "dataset": "maskedit_cn",
+      "image_pass": false,
+      "rgb_pass": false
+    },
+    {
+      "id": "maskedit_cn_s1_19",
+      "dataset": "maskedit_cn",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_cn_s2_48",
+      "dataset": "maskedit_cn",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_cn_s2_85",
+      "dataset": "maskedit_cn",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_cn_s4_20",
+      "dataset": "maskedit_cn",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_cn_s4_34",
+      "dataset": "maskedit_cn",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_cn_s4_73",
+      "dataset": "maskedit_cn",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_en_s2_20",
+      "dataset": "maskedit_en",
+      "image_pass": true,
+      "rgb_pass": false
+    },
+    {
+      "id": "maskedit_en_s2_35",
+      "dataset": "maskedit_en",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_en_s3_0",
+      "dataset": "maskedit_en",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_en_s3_47",
+      "dataset": "maskedit_en",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_en_s3_83",
+      "dataset": "maskedit_en",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_en_s3_91",
+      "dataset": "maskedit_en",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_en_s4_106",
+      "dataset": "maskedit_en",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "maskedit_en_s4_60",
+      "dataset": "maskedit_en",
+      "image_pass": true,
+      "rgb_pass": false
+    },
+    {
+      "id": "sciforma_s0_533",
+      "dataset": "sciforma",
+      "image_pass": false,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s0_551",
+      "dataset": "sciforma",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s1_281",
+      "dataset": "sciforma",
+      "image_pass": false,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s1_435",
+      "dataset": "sciforma",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s1_97",
+      "dataset": "sciforma",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s2_155",
+      "dataset": "sciforma",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s2_334",
+      "dataset": "sciforma",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s2_650",
+      "dataset": "sciforma",
+      "image_pass": true,
+      "rgb_pass": false
+    },
+    {
+      "id": "sciforma_s3_340",
+      "dataset": "sciforma",
+      "image_pass": false,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s4_380",
+      "dataset": "sciforma",
+      "image_pass": false,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s4_517",
+      "dataset": "sciforma",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s5_454",
+      "dataset": "sciforma",
+      "image_pass": false,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s6_488",
+      "dataset": "sciforma",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s7_755",
+      "dataset": "sciforma",
+      "image_pass": true,
+      "rgb_pass": false
+    },
+    {
+      "id": "sciforma_s7_779",
+      "dataset": "sciforma",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "sciforma_s8_65",
+      "dataset": "sciforma",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_10015",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_10031",
+      "dataset": "ultraedit",
+      "image_pass": false,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_10189",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_10355",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_6940",
+      "dataset": "ultraedit",
+      "image_pass": false,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_8233",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_8278",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_8305",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_8412",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_8623",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_8687",
+      "dataset": "ultraedit",
+      "image_pass": false,
+      "rgb_pass": false
+    },
+    {
+      "id": "ultraedit_8745",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_9187",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": false
+    },
+    {
+      "id": "ultraedit_9317",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": false
+    },
+    {
+      "id": "ultraedit_9567",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": true
+    },
+    {
+      "id": "ultraedit_9770",
+      "dataset": "ultraedit",
+      "image_pass": true,
+      "rgb_pass": true
+    }
+  ],
+  "criterion": "custom VLM judge of source + edited image + instruction, full edit-object extent; no ground-truth image supplied to judge",
+  "resolution": "128x128 resized",
+  "confidence_interval_method": "paired nonparametric bootstrap, 5000 resamples, fixed seed"
+}

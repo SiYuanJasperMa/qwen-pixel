@@ -1,0 +1,3102 @@
+{
+  "updated": "2026-11-25 18:42:01 北京时间",
+  "sft": [
+    {
+      "name": "纯 RFT",
+      "rows": 8601,
+      "step": 1289,
+      "tokens": 8002255,
+      "eval": {
+        "tasks": 64,
+        "parsed": 63,
+        "executed": 47,
+        "judge_pass": 14,
+        "judge_pending": 0,
+        "overall_pass_rate": 0.21875,
+        "checkpoint": "outputs/star_comparison_rft_v1/train/checkpoint-1289",
+        "supervised_tokens": 8002255,
+        "evaluation": "custom VLM judge on 64 official MagicBrush dev tasks"
+      },
+      "curve": [
+        [
+          5492,
+          0.5053565353155136
+        ],
+        [
+          82913,
+          0.5951735770160501
+        ],
+        [
+          152844,
+          0.6051755788780394
+        ],
+        [
+          227847,
+          0.6059440409143766
+        ],
+        [
+          287531,
+          0.5765253906448682
+        ],
+        [
+          344017,
+          0.5505811552206675
+        ],
+        [
+          396276,
+          0.5376894921064377
+        ],
+        [
+          458474,
+          0.5489428833127021
+        ],
+        [
+          528979,
+          0.5496449808279673
+        ],
+        [
+          589891,
+          0.5501035516460736
+        ],
+        [
+          655964,
+          0.5454516619443893
+        ],
+        [
+          715785,
+          0.5589245349168778
+        ],
+        [
+          774142,
+          0.5577258850137393
+        ],
+        [
+          836992,
+          0.5647130111853281
+        ],
+        [
+          912097,
+          0.5494015842676163
+        ],
+        [
+          963637,
+          0.5417079071203867
+        ],
+        [
+          1021555,
+          0.5260664800802867
+        ],
+        [
+          1081605,
+          0.5271397218108177
+        ],
+        [
+          1149683,
+          0.5280040507515271
+        ],
+        [
+          1212473,
+          0.5397269383072854
+        ],
+        [
+          1279230,
+          0.5297987615068753
+        ],
+        [
+          1338898,
+          0.5175921157002449
+        ],
+        [
+          1400382,
+          0.5055556078751882
+        ],
+        [
+          1461567,
+          0.5015313446521759
+        ],
+        [
+          1516341,
+          0.5102848216891289
+        ],
+        [
+          1577391,
+          0.5009373381733895
+        ],
+        [
+          1651690,
+          0.5206093470255534
+        ],
+        [
+          1704683,
+          0.5148320014278094
+        ],
+        [
+          1766980,
+          0.5194648325443267
+        ],
+        [
+          1827294,
+          0.5075596779584884
+        ],
+        [
+          1892865,
+          0.5082180271546046
+        ],
+        [
+          1946496,
+          0.5146359339356422
+        ],
+        [
+          2003514,
+          0.5066469480593999
+        ],
+        [
+          2058496,
+          0.505994321902593
+        ],
+        [
+          2126573,
+          0.5002093896269798
+        ],
+        [
+          2189161,
+          0.5001178160309792
+        ],
+        [
+          2257854,
+          0.4998707890510559
+        ],
+        [
+          2315234,
+          0.4940940052270889
+        ],
+        [
+          2363920,
+          0.4843162079652151
+        ],
+        [
+          2426606,
+          0.48743380457162855
+        ],
+        [
+          2489172,
+          0.4927763725320498
+        ],
+        [
+          2552917,
+          0.5127040689190229
+        ],
+        [
+          2611057,
+          0.5032771209875743
+        ],
+        [
+          2673671,
+          0.5033189296722412
+        ],
+        [
+          2739823,
+          0.5008028333385786
+        ],
+        [
+          2803176,
+          0.4998068521420161
+        ],
+        [
+          2870453,
+          0.49720704009135563
+        ],
+        [
+          2934659,
+          0.4952628254890442
+        ],
+        [
+          2998553,
+          0.49999803404013315
+        ],
+        [
+          3048726,
+          0.4925917978088061
+        ],
+        [
+          3105772,
+          0.48432855159044264
+        ],
+        [
+          3155938,
+          0.47703591038783394
+        ],
+        [
+          3211957,
+          0.48604950060447055
+        ],
+        [
+          3270850,
+          0.48408283591270446
+        ],
+        [
+          3329921,
+          0.494611323873202
+        ],
+        [
+          3383133,
+          0.48475355108579
+        ],
+        [
+          3437915,
+          0.4871358056863149
+        ],
+        [
+          3501032,
+          0.4818045218785604
+        ],
+        [
+          3566539,
+          0.4862606013814608
+        ],
+        [
+          3633963,
+          0.4905764311552048
+        ],
+        [
+          3700605,
+          0.4860432545344035
+        ],
+        [
+          3761319,
+          0.4893665169676145
+        ],
+        [
+          3828732,
+          0.48721070488293966
+        ],
+        [
+          3892164,
+          0.4845010464390119
+        ],
+        [
+          3948886,
+          0.4887838919957479
+        ],
+        [
+          4010136,
+          0.4831954076886177
+        ],
+        [
+          4066298,
+          0.47192316949367524
+        ],
+        [
+          4131970,
+          0.46890705327192944
+        ],
+        [
+          4193294,
+          0.4657968650261561
+        ],
+        [
+          4247929,
+          0.48666348258654274
+        ],
+        [
+          4302605,
+          0.47808391352494556
+        ],
+        [
+          4354686,
+          0.48315066446860633
+        ],
+        [
+          4429720,
+          0.4783617069323858
+        ],
+        [
+          4482189,
+          0.48061028569936753
+        ],
+        [
+          4545875,
+          0.47447289327780406
+        ],
+        [
+          4596743,
+          0.4692826216419538
+        ],
+        [
+          4662497,
+          0.47541743963956834
+        ],
+        [
+          4726311,
+          0.4824464276432991
+        ],
+        [
+          4791175,
+          0.4841529652476311
+        ],
+        [
+          4854913,
+          0.48470256725947064
+        ],
+        [
+          4922177,
+          0.48644085476795834
+        ],
+        [
+          4980129,
+          0.48555611073970795
+        ],
+        [
+          5039711,
+          0.4749569982290268
+        ],
+        [
+          5098272,
+          0.46481215159098305
+        ],
+        [
+          5152368,
+          0.46107969532410303
+        ],
+        [
+          5213524,
+          0.4638278295596441
+        ],
+        [
+          5276835,
+          0.4645439604918162
+        ],
+        [
+          5334298,
+          0.46736418356498083
+        ],
+        [
+          5389767,
+          0.4651857987046242
+        ],
+        [
+          5452440,
+          0.46978672097126645
+        ],
+        [
+          5515792,
+          0.4663744469483693
+        ],
+        [
+          5578188,
+          0.47569864441951115
+        ],
+        [
+          5642072,
+          0.47382651815811794
+        ],
+        [
+          5697625,
+          0.4761031170686086
+        ],
+        [
+          5756677,
+          0.47263603111108143
+        ],
+        [
+          5823770,
+          0.47933204968770343
+        ],
+        [
+          5897943,
+          0.48900923132896423
+        ],
+        [
+          5965979,
+          0.481528273721536
+        ],
+        [
+          6020383,
+          0.4712031801541646
+        ],
+        [
+          6071829,
+          0.45523528556029
+        ],
+        [
+          6140104,
+          0.4604613150159518
+        ],
+        [
+          6201927,
+          0.46535478880008063
+        ],
+        [
+          6261846,
+          0.4670433774590492
+        ],
+        [
+          6324485,
+          0.46338907033205035
+        ],
+        [
+          6392323,
+          0.46386911819378535
+        ],
+        [
+          6460839,
+          0.46948582381010057
+        ],
+        [
+          6534312,
+          0.4696576878428459
+        ],
+        [
+          6608186,
+          0.4672969445586205
+        ],
+        [
+          6678477,
+          0.45741855005423226
+        ],
+        [
+          6744077,
+          0.4679630950093269
+        ],
+        [
+          6804149,
+          0.47319902082284293
+        ],
+        [
+          6865363,
+          0.48482928375403084
+        ],
+        [
+          6939406,
+          0.4884765858451525
+        ],
+        [
+          7008259,
+          0.4793750877181689
+        ],
+        [
+          7073902,
+          0.47285095204909644
+        ],
+        [
+          7136602,
+          0.45573674937089287
+        ],
+        [
+          7197388,
+          0.45846313337484995
+        ],
+        [
+          7251449,
+          0.4600065156817436
+        ],
+        [
+          7320277,
+          0.46413234025239947
+        ],
+        [
+          7396057,
+          0.4822765067219734
+        ],
+        [
+          7462585,
+          0.48830752571423847
+        ],
+        [
+          7524473,
+          0.48910026500622433
+        ],
+        [
+          7594826,
+          0.47629316747188566
+        ],
+        [
+          7662719,
+          0.4767160813013713
+        ],
+        [
+          7725995,
+          0.47833351145188013
+        ],
+        [
+          7780186,
+          0.47956207195917766
+        ],
+        [
+          7831791,
+          0.48584112922350564
+        ],
+        [
+          7888895,
+          0.4824800690015157
+        ],
+        [
+          7953218,
+          0.47359533309936525
+        ]
+      ],
+      "complete": true
+    },
+    {
+      "name": "RFT + TI 混合",
+      "rows": 12006,
+      "step": 1343,
+      "tokens": 8000120,
+      "eval": {
+        "tasks": 64,
+        "parsed": 61,
+        "executed": 47,
+        "judge_pass": 17,
+        "judge_pending": 0,
+        "overall_pass_rate": 0.265625,
+        "checkpoint": "outputs/star_comparison_mixed_v1/train/checkpoint-1343",
+        "supervised_tokens": 8000120,
+        "evaluation": "custom VLM judge on 64 official MagicBrush dev tasks"
+      },
+      "curve": [
+        [
+          9537,
+          0.7054072320461273
+        ],
+        [
+          71798,
+          0.612250722267411
+        ],
+        [
+          133945,
+          0.6025920921847934
+        ],
+        [
+          197217,
+          0.6011009593804677
+        ],
+        [
+          267812,
+          0.5875974530975024
+        ],
+        [
+          320645,
+          0.5694187665979068
+        ],
+        [
+          383840,
+          0.5494155257940292
+        ],
+        [
+          437858,
+          0.5399894605080287
+        ],
+        [
+          484364,
+          0.54453238149484
+        ],
+        [
+          540149,
+          0.5295080279310544
+        ],
+        [
+          600793,
+          0.5258126283685366
+        ],
+        [
+          654813,
+          0.5152234623829524
+        ],
+        [
+          714879,
+          0.5154585247238477
+        ],
+        [
+          778826,
+          0.5109802772601445
+        ],
+        [
+          843139,
+          0.5258763134479523
+        ],
+        [
+          905161,
+          0.5275947327415148
+        ],
+        [
+          966983,
+          0.5352652505040169
+        ],
+        [
+          1015561,
+          0.5105744227766991
+        ],
+        [
+          1075148,
+          0.5115063453714053
+        ],
+        [
+          1135730,
+          0.49714784771203996
+        ],
+        [
+          1191540,
+          0.5044901763399442
+        ],
+        [
+          1254155,
+          0.5116232027610143
+        ],
+        [
+          1306561,
+          0.514806583027045
+        ],
+        [
+          1366262,
+          0.5020825381080309
+        ],
+        [
+          1423196,
+          0.48900498847166696
+        ],
+        [
+          1477601,
+          0.49261718839406965
+        ],
+        [
+          1534250,
+          0.48570640236139295
+        ],
+        [
+          1593423,
+          0.48061168293158213
+        ],
+        [
+          1649756,
+          0.45654975026845934
+        ],
+        [
+          1703104,
+          0.4729843944311142
+        ],
+        [
+          1766465,
+          0.4832718148827553
+        ],
+        [
+          1823001,
+          0.49726400276025134
+        ],
+        [
+          1879045,
+          0.48391482879718145
+        ],
+        [
+          1932076,
+          0.4609942356745402
+        ],
+        [
+          1994664,
+          0.46867225418488184
+        ],
+        [
+          2053479,
+          0.48507659981648127
+        ],
+        [
+          2116610,
+          0.5069531579812367
+        ],
+        [
+          2171935,
+          0.4892472182710966
+        ],
+        [
+          2229626,
+          0.47875038236379625
+        ],
+        [
+          2292612,
+          0.4667643949389458
+        ],
+        [
+          2357270,
+          0.48540661434332527
+        ],
+        [
+          2418153,
+          0.49133638938268026
+        ],
+        [
+          2468285,
+          0.4871874799331029
+        ],
+        [
+          2534340,
+          0.48528480927149453
+        ],
+        [
+          2595411,
+          0.4837232276797295
+        ],
+        [
+          2650867,
+          0.4921323239803314
+        ],
+        [
+          2716590,
+          0.4779344936211904
+        ],
+        [
+          2778032,
+          0.4831648280223211
+        ],
+        [
+          2840251,
+          0.47459259976943335
+        ],
+        [
+          2901669,
+          0.47856629143158597
+        ],
+        [
+          2958766,
+          0.4753154243032138
+        ],
+        [
+          3007563,
+          0.4713342279195786
+        ],
+        [
+          3072870,
+          0.47900270571311315
+        ],
+        [
+          3125408,
+          0.4862463732560476
+        ],
+        [
+          3176821,
+          0.4835359876354535
+        ],
+        [
+          3235877,
+          0.4705145925283432
+        ],
+        [
+          3307741,
+          0.4650317519903183
+        ],
+        [
+          3372328,
+          0.4680047457416852
+        ],
+        [
+          3431262,
+          0.47257290383179984
+        ],
+        [
+          3483249,
+          0.45710379381974536
+        ],
+        [
+          3540820,
+          0.46100745846827823
+        ],
+        [
+          3606434,
+          0.4675794517000516
+        ],
+        [
+          3668834,
+          0.47655487110217415
+        ],
+        [
+          3729589,
+          0.4845759262641271
+        ],
+        [
+          3791201,
+          0.4827790980537732
+        ],
+        [
+          3852285,
+          0.47455051441987356
+        ],
+        [
+          3916284,
+          0.4637602761387825
+        ],
+        [
+          3976431,
+          0.4563030431667964
+        ],
+        [
+          4046033,
+          0.4547951186696688
+        ],
+        [
+          4103677,
+          0.45655571719010674
+        ],
+        [
+          4163140,
+          0.4566510652502378
+        ],
+        [
+          4215153,
+          0.4640099788705508
+        ],
+        [
+          4268939,
+          0.4542016943295797
+        ],
+        [
+          4336234,
+          0.4550256287058195
+        ],
+        [
+          4402010,
+          0.4557336539030075
+        ],
+        [
+          4462384,
+          0.4747112179795901
+        ],
+        [
+          4518368,
+          0.4724665174881617
+        ],
+        [
+          4580969,
+          0.4585604185859362
+        ],
+        [
+          4638149,
+          0.4411890720327695
+        ],
+        [
+          4697244,
+          0.43715551445881523
+        ],
+        [
+          4759081,
+          0.44833508183558785
+        ],
+        [
+          4817892,
+          0.46147462030251823
+        ],
+        [
+          4874078,
+          0.45491113265355426
+        ],
+        [
+          4936410,
+          0.45456316918134687
+        ],
+        [
+          4989199,
+          0.4466085657477379
+        ],
+        [
+          5048510,
+          0.45762088845173515
+        ],
+        [
+          5100358,
+          0.44709244519472124
+        ],
+        [
+          5170235,
+          0.4549771343668302
+        ],
+        [
+          5224792,
+          0.45981649607419967
+        ],
+        [
+          5280752,
+          0.4570631022254626
+        ],
+        [
+          5344226,
+          0.4578819255034129
+        ],
+        [
+          5405828,
+          0.45778030653794605
+        ],
+        [
+          5470436,
+          0.4674253577987353
+        ],
+        [
+          5528646,
+          0.4674538180232048
+        ],
+        [
+          5590856,
+          0.4694183294971784
+        ],
+        [
+          5653936,
+          0.4616244668761889
+        ],
+        [
+          5709594,
+          0.46274575491746267
+        ],
+        [
+          5759517,
+          0.44853402276833854
+        ],
+        [
+          5817851,
+          0.4470207060376803
+        ],
+        [
+          5869615,
+          0.4257050966223081
+        ],
+        [
+          5926209,
+          0.4289152567585309
+        ],
+        [
+          5989042,
+          0.43989020884037017
+        ],
+        [
+          6060089,
+          0.46633825202782947
+        ],
+        [
+          6117718,
+          0.4700750758250554
+        ],
+        [
+          6181773,
+          0.46272190908590954
+        ],
+        [
+          6241476,
+          0.444443508485953
+        ],
+        [
+          6309055,
+          0.4571573952833811
+        ],
+        [
+          6377743,
+          0.45851185023784635
+        ],
+        [
+          6440003,
+          0.45635647426048914
+        ],
+        [
+          6496538,
+          0.44654995451370877
+        ],
+        [
+          6565809,
+          0.45781512906154
+        ],
+        [
+          6618136,
+          0.46623142510652543
+        ],
+        [
+          6681826,
+          0.46472415228684744
+        ],
+        [
+          6740989,
+          0.4561920036872228
+        ],
+        [
+          6798837,
+          0.4610911548137665
+        ],
+        [
+          6858928,
+          0.45915815979242325
+        ],
+        [
+          6910558,
+          0.4509924054145813
+        ],
+        [
+          6965664,
+          0.4594441031416257
+        ],
+        [
+          7018959,
+          0.45817751189072925
+        ],
+        [
+          7075920,
+          0.46141552130381264
+        ],
+        [
+          7142826,
+          0.45008296718200047
+        ],
+        [
+          7200750,
+          0.4564928412437439
+        ],
+        [
+          7251473,
+          0.46273813595374425
+        ],
+        [
+          7310400,
+          0.4549268767237663
+        ],
+        [
+          7373393,
+          0.45416340281565987
+        ],
+        [
+          7430464,
+          0.45202182432015736
+        ],
+        [
+          7488717,
+          0.4496457656224569
+        ],
+        [
+          7554710,
+          0.45090005546808243
+        ],
+        [
+          7621527,
+          0.4491162786881129
+        ],
+        [
+          7690295,
+          0.45006954967975615
+        ],
+        [
+          7747240,
+          0.4576383347312609
+        ],
+        [
+          7808627,
+          0.46876470347245536
+        ],
+        [
+          7868854,
+          0.47393377870321274
+        ],
+        [
+          7928878,
+          0.4596047312021255
+        ],
+        [
+          7992062,
+          0.450294761856397
+        ]
+      ],
+      "complete": true
+    }
+  ],
+  "teacher": [
+    {
+      "name": "GPT-5.5 · RFT",
+      "done": 256,
+      "target": 256,
+      "pass": 58,
+      "qualified": 58,
+      "error": 0
+    },
+    {
+      "name": "GPT-6.1-Sol · RFT",
+      "done": 256,
+      "target": 256,
+      "pass": 120,
+      "qualified": 119,
+      "error": 7
+    },
+    {
+      "name": "GPT-6.1-Sol · TI",
+      "done": 256,
+      "target": 256,
+      "pass": 66,
+      "qualified": 59,
+      "error": 10
+    }
+  ],
+  "new_unique_tasks": 162,
+  "ti_only_same_teacher": 24,
+  "ti_only_all_teachers": 19,
+  "rl": {
+    "groups": 1,
+    "optimizer_updates": 1,
+    "nonzero_update_verified": true
+  },
+  "replications": [
+    {
+      "name": "纯 RFT",
+      "step": 1314,
+      "tokens": 8002201
+    },
+    {
+      "name": "RFT + TI",
+      "step": 1343,
+      "tokens": 8006880
+    }
+  ],
+  "rgb_text": {
+    "tasks": 3,
+    "modes": {
+      "rgb_text": {
+        "completed": 3,
+        "expected": 3,
+        "executed": 3,
+        "judge_pass": 0,
+        "judge_pending": 0,
+        "errors": [],
+        "input_tokens": [
+          103967,
+          100744,
+          39521
+        ],
+        "model_audit": {
+          "class": "Qwen3_5ForCausalLM",
+          "vision_modules": 0,
+          "language_weights_missing": 0,
+          "language_weight_keys": 851
+        }
+      },
+      "instruction_only": {
+        "completed": 3,
+        "expected": 3,
+        "executed": 3,
+        "judge_pass": 0,
+        "judge_pending": 0,
+        "errors": [],
+        "input_tokens": [
+          233,
+          236,
+          465
+        ],
+        "model_audit": {
+          "class": "Qwen3_5ForCausalLM",
+          "vision_modules": 0,
+          "language_weights_missing": 0,
+          "language_weight_keys": 851
+        }
+      },
+      "vl": {
+        "completed": 3,
+        "expected": 3,
+        "executed": 3,
+        "judge_pass": 0,
+        "judge_pending": 0,
+        "errors": [],
+        "input_tokens": [
+          478,
+          481,
+          710
+        ],
+        "model_audit": {
+          "class": "Qwen3_5ForConditionalGeneration",
+          "mode": "vl"
+        }
+      }
+    },
+    "rgb_budget": [
+      {
+        "side": 64,
+        "encoding": "hex_rle",
+        "tokens": 26379,
+        "characters": 28948
+      },
+      {
+        "side": 128,
+        "encoding": "hex_rle",
+        "tokens": 103729,
+        "characters": 113850
+      },
+      {
+        "side": 256,
+        "encoding": "hex_rle",
+        "tokens": 411420,
+        "characters": 451151
+      },
+      {
+        "side": 512,
+        "encoding": "hex_rle",
+        "tokens": 1620631,
+        "characters": 1776761
+      }
+    ],
+    "resolution": "128x128 resized",
+    "target_in_model_input": false
+  },
+  "editing_growth": {
+    "production": {
+      "updated": "2026-11-25T18:37:52.261860+08:00",
+      "state": "running",
+      "pid": 474621,
+      "night_parallelism": true,
+      "task_pool": 11689,
+      "disabled_sources": [
+        "instructpix2pix"
+      ],
+      "datasets": {
+        "magicbrush": 1003,
+        "ultraedit": 4134,
+        "sciforma": 283,
+        "anyedit": 3809,
+        "maskedit_scene": 1146,
+        "maskedit_en": 1314
+      },
+      "lanes": [
+        {
+          "mode": "rft",
+          "teacher": "gpt55",
+          "concurrency": 8,
+          "running_or_waiting_api": 7,
+          "pending": 455,
+          "completed": 5130,
+          "qualified": 1206,
+          "retryable_errors": 0
+        },
+        {
+          "mode": "rft",
+          "teacher": "gpt61",
+          "concurrency": 16,
+          "running_or_waiting_api": 14,
+          "pending": 4183,
+          "completed": 5794,
+          "qualified": 2454,
+          "retryable_errors": 963
+        },
+        {
+          "mode": "rft",
+          "teacher": "terra",
+          "concurrency": 4,
+          "running_or_waiting_api": 4,
+          "pending": 310,
+          "completed": 983,
+          "qualified": 286,
+          "retryable_errors": 0
+        },
+        {
+          "mode": "rft",
+          "teacher": "luna",
+          "concurrency": 4,
+          "running_or_waiting_api": 2,
+          "pending": 304,
+          "completed": 960,
+          "qualified": 247,
+          "retryable_errors": 0
+        },
+        {
+          "mode": "ti",
+          "teacher": "gpt61",
+          "concurrency": 8,
+          "running_or_waiting_api": 7,
+          "pending": 193,
+          "completed": 3123,
+          "qualified": 320,
+          "retryable_errors": 201
+        }
+      ],
+      "accepted_trajectories": 4513,
+      "accepted_unique_tasks": 4513,
+      "fully_processed_tasks": 6247,
+      "language_policy": "english_only",
+      "ti_selection": "failure_rescue",
+      "teacher_models": null,
+      "candidate_tag": "growth1",
+      "off_peak_only": false,
+      "judge_rubric": "full_visible_target_v1",
+      "sft_manifest": "/mnt/bn/embodied-lf3/masiyuan/qwen_pixel/data/editing_growth_v1/sft/manifest.json"
+    },
+    "ingestion": {
+      "phase": "image_storage_budget",
+      "bytes": 8679625245,
+      "budget_gib": 8.0,
+      "counts": {
+        "anyedit": 4218,
+        "maskedit_scene": 1248,
+        "maskedit_en": 1351,
+        "maskedit_cn": 523,
+        "ultraedit": 2328,
+        "instructpix2pix": 2902
+      }
+    },
+    "new_dataset_tasks": {
+      "anyedit": 4218,
+      "maskedit_scene": 1248,
+      "maskedit_en": 1351,
+      "maskedit_cn": 523,
+      "ultraedit": 2328,
+      "instructpix2pix": 2902
+    },
+    "sft": {
+      "rows": 4513,
+      "source_groups": 4142,
+      "datasets": {
+        "ultraedit": 1296,
+        "magicbrush": 238,
+        "sciforma": 191,
+        "maskedit_scene": 601,
+        "maskedit_en": 553,
+        "instructpix2pix": 866,
+        "anyedit": 768
+      },
+      "modes": {
+        "rft": 4193,
+        "ti": 320
+      },
+      "source": "/mnt/bn/embodied-lf3/masiyuan/qwen_pixel/data/editing_growth_v1/judged.jsonl",
+      "frozen_existing_sft_unchanged": true,
+      "candidate_tag": "growth1",
+      "off_peak_only": false,
+      "language_policy": "english_only",
+      "ti_selection": "failure_rescue"
+    },
+    "independent_ti": {
+      "updated": "2026-11-25T18:42:00.007750+08:00",
+      "state": "running",
+      "pid": 499724,
+      "night_parallelism": true,
+      "task_pool": 11689,
+      "disabled_sources": [
+        "instructpix2pix"
+      ],
+      "datasets": {
+        "magicbrush": 1003,
+        "ultraedit": 4134,
+        "sciforma": 283,
+        "anyedit": 3809,
+        "maskedit_scene": 1146,
+        "maskedit_en": 1314
+      },
+      "lanes": [
+        {
+          "mode": "ti",
+          "teacher": "gpt55",
+          "concurrency": 8,
+          "running_or_waiting_api": 0,
+          "pending": 0,
+          "completed": 3984,
+          "qualified": 577,
+          "retryable_errors": 0
+        },
+        {
+          "mode": "ti",
+          "teacher": "gpt61",
+          "concurrency": 16,
+          "running_or_waiting_api": 15,
+          "pending": 2599,
+          "completed": 2077,
+          "qualified": 321,
+          "retryable_errors": 2056
+        },
+        {
+          "mode": "ti",
+          "teacher": "terra",
+          "concurrency": 4,
+          "running_or_waiting_api": 4,
+          "pending": 2446,
+          "completed": 1151,
+          "qualified": 101,
+          "retryable_errors": 1775
+        },
+        {
+          "mode": "ti",
+          "teacher": "luna",
+          "concurrency": 4,
+          "running_or_waiting_api": 4,
+          "pending": 2016,
+          "completed": 1081,
+          "qualified": 103,
+          "retryable_errors": 1288
+        },
+        {
+          "mode": "ti",
+          "teacher": "gpt62",
+          "concurrency": 16,
+          "running_or_waiting_api": 16,
+          "pending": 2242,
+          "completed": 3639,
+          "qualified": 909,
+          "retryable_errors": 33
+        }
+      ],
+      "accepted_trajectories": 2011,
+      "accepted_unique_tasks": 2011,
+      "fully_processed_tasks": 2386,
+      "language_policy": "english_only",
+      "ti_selection": "independent_enrichment",
+      "teacher_models": [
+        "gpt55",
+        "gpt61",
+        "terra",
+        "luna",
+        "gpt62"
+      ],
+      "candidate_tag": "growth1",
+      "off_peak_only": false,
+      "judge_rubric": "full_visible_target_v1",
+      "sft_manifest": "/mnt/bn/embodied-lf3/masiyuan/qwen_pixel/data/editing_growth_v1/ti_balanced_en_v1/sft/manifest.json"
+    },
+    "independent_ti_sft": {
+      "rows": 2010,
+      "source_groups": 1835,
+      "datasets": {
+        "instructpix2pix": 307,
+        "maskedit_scene": 373,
+        "maskedit_en": 366,
+        "anyedit": 287,
+        "ultraedit": 463,
+        "magicbrush": 119,
+        "sciforma": 95
+      },
+      "modes": {
+        "ti": 2010
+      },
+      "source": "/mnt/bn/embodied-lf3/masiyuan/qwen_pixel/data/editing_growth_v1/ti_balanced_en_v1/judged.jsonl",
+      "frozen_existing_sft_unchanged": true,
+      "candidate_tag": "growth1",
+      "off_peak_only": false,
+      "language_policy": "english_only",
+      "ti_selection": "independent_enrichment"
+    },
+    "night_sol_ti": {
+      "updated": "2026-11-25T18:41:45.785310+08:00",
+      "state": "running",
+      "pid": 3972552,
+      "night_parallelism": true,
+      "task_pool": 3746,
+      "datasets": {
+        "magicbrush": 1003,
+        "sciforma": 283,
+        "maskedit_scene": 1146,
+        "maskedit_en": 1314
+      },
+      "lanes": [
+        {
+          "mode": "ti",
+          "teacher": "gpt61",
+          "concurrency": 16,
+          "running_or_waiting_api": 16,
+          "pending": 1714,
+          "completed": 146,
+          "qualified": 85,
+          "retryable_errors": 0
+        },
+        {
+          "mode": "ti",
+          "teacher": "gpt62",
+          "concurrency": 16,
+          "running_or_waiting_api": 16,
+          "pending": 1947,
+          "completed": 0,
+          "qualified": 0,
+          "retryable_errors": 16
+        }
+      ],
+      "accepted_trajectories": 85,
+      "accepted_unique_tasks": 85,
+      "fully_processed_tasks": 85,
+      "language_policy": "english_only",
+      "ti_selection": "independent_enrichment",
+      "teacher_models": [
+        "gpt61",
+        "gpt62"
+      ],
+      "candidate_tag": "night_sol_v2",
+      "off_peak_only": true,
+      "judge_rubric": "full_visible_target_v1",
+      "sft_manifest": "/mnt/bn/embodied-lf3/masiyuan/qwen_pixel/data/editing_growth_v1/ti_night_sol_v2/sft/manifest.json"
+    },
+    "english_sft_rows": {
+      "rft": 14217,
+      "ti": 5951,
+      "total": 20168
+    },
+    "english_unique_tasks": 13945
+  },
+  "gpt61_rgb_smoke": {
+    "model": "traex/GPT-6.1-Sol",
+    "image_inputs": 0,
+    "target_in_model_input": false,
+    "modes": {
+      "rgb_text": {
+        "completed": 3,
+        "expected": 3,
+        "executed": 3,
+        "judge_pass": 3,
+        "judge_pending": 0
+      },
+      "instruction_only": {
+        "completed": 3,
+        "expected": 3,
+        "executed": 2,
+        "judge_pass": 0,
+        "judge_pending": 0
+      }
+    },
+    "three_settings": {
+      "model": "traex/GPT-6.1-Sol",
+      "resolution": "128x128",
+      "tasks_per_setting": 3,
+      "cache_pricing_used": false,
+      "rates": null,
+      "settings": {
+        "image_only": {
+          "tasks": 3,
+          "executed": 3,
+          "judge_pass": 3,
+          "total_input_tokens": 892,
+          "total_output_tokens": 11812,
+          "total_reasoning_tokens": 6912,
+          "mean_input_tokens": 297.3333333333333,
+          "mean_output_tokens": 3937.3333333333335,
+          "mean_visible_output_tokens": 1633.3333333333333,
+          "mean_reasoning_tokens": 2304.0,
+          "uncached_cost_coefficients_per_call": {
+            "input_rate_per_million": 0.0002973333333333333,
+            "output_rate_per_million": 0.0039373333333333335
+          }
+        },
+        "image_rgb": {
+          "tasks": 3,
+          "executed": 3,
+          "judge_pass": 3,
+          "total_input_tokens": 178855,
+          "total_output_tokens": 13924,
+          "total_reasoning_tokens": 9055,
+          "mean_input_tokens": 59618.333333333336,
+          "mean_output_tokens": 4641.333333333333,
+          "mean_visible_output_tokens": 1623.0,
+          "mean_reasoning_tokens": 3018.3333333333335,
+          "uncached_cost_coefficients_per_call": {
+            "input_rate_per_million": 0.059618333333333336,
+            "output_rate_per_million": 0.004641333333333333
+          }
+        },
+        "rgb_text": {
+          "tasks": 3,
+          "executed": 3,
+          "judge_pass": 3,
+          "total_input_tokens": 178795,
+          "total_output_tokens": 23147,
+          "total_reasoning_tokens": 18124,
+          "mean_input_tokens": 59598.333333333336,
+          "mean_output_tokens": 7715.666666666667,
+          "mean_visible_output_tokens": 1674.3333333333333,
+          "mean_reasoning_tokens": 6041.333333333333,
+          "uncached_cost_coefficients_per_call": {
+            "input_rate_per_million": 0.059598333333333336,
+            "output_rate_per_million": 0.007715666666666667
+          }
+        }
+      },
+      "billing_note": "Proxy reports no separate image-token or image-fee field; exact vendor/account rates are unavailable. Coefficients use reported usage, not an actual invoice."
+    }
+  },
+  "gpt61_rgb_gain64": {
+    "modes": {
+      "image_only": {
+        "completed": 64,
+        "expected": 64,
+        "api_failed": 0,
+        "judge_pending": 0,
+        "evaluated": 64,
+        "passed": 46,
+        "executed": 63,
+        "format_or_code_failures": 1,
+        "semantic_failures": 17,
+        "mean_input_tokens": 262.609375,
+        "mean_output_tokens": 4159.421875,
+        "total_input_tokens": 16807,
+        "total_output_tokens": 266203,
+        "mean_reasoning_tokens": 2189.71875,
+        "pixel_metrics": {
+          "evaluated": 63,
+          "mean_l1": 0.030179460713591812,
+          "mean_no_op_l1": 0.023070850926968787,
+          "better_than_no_op": 19,
+          "protocol": "local aligned-resized RGB L1; not official benchmark evaluation"
+        }
+      },
+      "image_rgb": {
+        "completed": 64,
+        "expected": 64,
+        "api_failed": 0,
+        "judge_pending": 0,
+        "evaluated": 64,
+        "passed": 50,
+        "executed": 63,
+        "format_or_code_failures": 1,
+        "semantic_failures": 13,
+        "mean_input_tokens": 61149.046875,
+        "mean_output_tokens": 4885.140625,
+        "total_input_tokens": 3913539,
+        "total_output_tokens": 312649,
+        "mean_reasoning_tokens": 2880.3125,
+        "pixel_metrics": {
+          "evaluated": 63,
+          "mean_l1": 0.033157204847647954,
+          "mean_no_op_l1": 0.02326399025817712,
+          "better_than_no_op": 21,
+          "protocol": "local aligned-resized RGB L1; not official benchmark evaluation"
+        }
+      }
+    },
+    "paired_evaluated": 64,
+    "image_only_passed": 46,
+    "image_rgb_passed": 50,
+    "rgb_only_wins": 10,
+    "image_only_wins": 6,
+    "net_gain_pp": 6.25,
+    "mcnemar_exact_p": 0.454498291015625,
+    "paired_bootstrap_95ci_pp": [
+      -6.25,
+      18.75
+    ],
+    "by_dataset": {
+      "magicbrush": {
+        "paired_evaluated": 16,
+        "image_only_passed": 7,
+        "image_rgb_passed": 10,
+        "rgb_only_wins": 3,
+        "image_only_wins": 0,
+        "net_gain_pp": 18.75,
+        "mcnemar_exact_p": 0.25,
+        "paired_bootstrap_95ci_pp": [
+          0.0,
+          37.5
+        ]
+      },
+      "maskedit_cn": {
+        "paired_evaluated": 8,
+        "image_only_passed": 7,
+        "image_rgb_passed": 7,
+        "rgb_only_wins": 0,
+        "image_only_wins": 0,
+        "net_gain_pp": 0.0,
+        "mcnemar_exact_p": 1.0,
+        "paired_bootstrap_95ci_pp": [
+          0.0,
+          0.0
+        ]
+      },
+      "maskedit_en": {
+        "paired_evaluated": 8,
+        "image_only_passed": 8,
+        "image_rgb_passed": 6,
+        "rgb_only_wins": 0,
+        "image_only_wins": 2,
+        "net_gain_pp": -25.0,
+        "mcnemar_exact_p": 0.5,
+        "paired_bootstrap_95ci_pp": [
+          -62.5,
+          0.0
+        ]
+      },
+      "sciforma": {
+        "paired_evaluated": 16,
+        "image_only_passed": 11,
+        "image_rgb_passed": 14,
+        "rgb_only_wins": 5,
+        "image_only_wins": 2,
+        "net_gain_pp": 18.75,
+        "mcnemar_exact_p": 0.453125,
+        "paired_bootstrap_95ci_pp": [
+          -12.5,
+          50.0
+        ]
+      },
+      "ultraedit": {
+        "paired_evaluated": 16,
+        "image_only_passed": 13,
+        "image_rgb_passed": 13,
+        "rgb_only_wins": 2,
+        "image_only_wins": 2,
+        "net_gain_pp": 0.0,
+        "mcnemar_exact_p": 1.0,
+        "paired_bootstrap_95ci_pp": [
+          -25.0,
+          25.0
+        ]
+      }
+    },
+    "token_comparison": {
+      "extra_mean_input_tokens": 60886.4375,
+      "extra_mean_output_tokens": 725.71875,
+      "cache_discount_assumed": false,
+      "price_note": "No verified account prices; image tokens/fees may not be fully exposed by proxy usage."
+    },
+    "paired_quality_scores": {
+      "image_only": {
+        "instruction_adherence": 4.048387096774194,
+        "preservation": 4.532258064516129,
+        "visual_quality": 3.7096774193548385
+      },
+      "image_rgb": {
+        "instruction_adherence": 4.225806451612903,
+        "preservation": 4.629032258064516,
+        "visual_quality": 3.693548387096774
+      },
+      "paired_judged": 62
+    },
+    "paired_pixel_metrics": {
+      "paired_measured": 62,
+      "protocol": "local RGB L1; generated output resized to source only if dimensions differ",
+      "image_only": {
+        "mean_l1": 0.03007446823129055,
+        "better_than_no_op": 19
+      },
+      "image_rgb": {
+        "mean_l1": 0.03245770236577711,
+        "better_than_no_op": 21
+      },
+      "mean_no_op_l1": 0.022872107073424325
+    },
+    "judge_model": "gpt-5.5-2026-04-24",
+    "resized_output_cases": [
+      {
+        "id": "sciforma_s2_650",
+        "mode": "image_only",
+        "source_input_size": [
+          128,
+          128
+        ],
+        "actual_output_size": [
+          1536,
+          1536
+        ],
+        "judge_source_resampling": "nearest",
+        "pixel_metric_output_resampling": "lanczos",
+        "code_or_output_changed": false
+      }
+    ],
+    "complete": true,
+    "pairs": [
+      {
+        "id": "magicbrush_dev_100081_2",
+        "dataset": "magicbrush",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "magicbrush_dev_108871_1",
+        "dataset": "magicbrush",
+        "image_pass": false,
+        "rgb_pass": false
+      },
+      {
+        "id": "magicbrush_dev_140513_1",
+        "dataset": "magicbrush",
+        "image_pass": false,
+        "rgb_pass": true
+      },
+      {
+        "id": "magicbrush_dev_177824_2",
+        "dataset": "magicbrush",
+        "image_pass": false,
+        "rgb_pass": true
+      },
+      {
+        "id": "magicbrush_dev_219590_2",
+        "dataset": "magicbrush",
+        "image_pass": false,
+        "rgb_pass": true
+      },
+      {
+        "id": "magicbrush_dev_237569_2",
+        "dataset": "magicbrush",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "magicbrush_dev_273560_3",
+        "dataset": "magicbrush",
+        "image_pass": false,
+        "rgb_pass": false
+      },
+      {
+        "id": "magicbrush_dev_294973_2",
+        "dataset": "magicbrush",
+        "image_pass": false,
+        "rgb_pass": false
+      },
+      {
+        "id": "magicbrush_dev_315319_1",
+        "dataset": "magicbrush",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "magicbrush_dev_381199_2",
+        "dataset": "magicbrush",
+        "image_pass": false,
+        "rgb_pass": false
+      },
+      {
+        "id": "magicbrush_dev_393375_1",
+        "dataset": "magicbrush",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "magicbrush_dev_415314_1",
+        "dataset": "magicbrush",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "magicbrush_dev_450129_1",
+        "dataset": "magicbrush",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "magicbrush_dev_524924_2",
+        "dataset": "magicbrush",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "magicbrush_dev_54492_3",
+        "dataset": "magicbrush",
+        "image_pass": false,
+        "rgb_pass": false
+      },
+      {
+        "id": "magicbrush_dev_55458_1",
+        "dataset": "magicbrush",
+        "image_pass": false,
+        "rgb_pass": false
+      },
+      {
+        "id": "maskedit_cn_s0_45",
+        "dataset": "maskedit_cn",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_cn_s0_67",
+        "dataset": "maskedit_cn",
+        "image_pass": false,
+        "rgb_pass": false
+      },
+      {
+        "id": "maskedit_cn_s1_19",
+        "dataset": "maskedit_cn",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_cn_s2_48",
+        "dataset": "maskedit_cn",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_cn_s2_85",
+        "dataset": "maskedit_cn",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_cn_s4_20",
+        "dataset": "maskedit_cn",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_cn_s4_34",
+        "dataset": "maskedit_cn",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_cn_s4_73",
+        "dataset": "maskedit_cn",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_en_s2_20",
+        "dataset": "maskedit_en",
+        "image_pass": true,
+        "rgb_pass": false
+      },
+      {
+        "id": "maskedit_en_s2_35",
+        "dataset": "maskedit_en",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_en_s3_0",
+        "dataset": "maskedit_en",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_en_s3_47",
+        "dataset": "maskedit_en",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_en_s3_83",
+        "dataset": "maskedit_en",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_en_s3_91",
+        "dataset": "maskedit_en",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_en_s4_106",
+        "dataset": "maskedit_en",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "maskedit_en_s4_60",
+        "dataset": "maskedit_en",
+        "image_pass": true,
+        "rgb_pass": false
+      },
+      {
+        "id": "sciforma_s0_533",
+        "dataset": "sciforma",
+        "image_pass": false,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s0_551",
+        "dataset": "sciforma",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s1_281",
+        "dataset": "sciforma",
+        "image_pass": false,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s1_435",
+        "dataset": "sciforma",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s1_97",
+        "dataset": "sciforma",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s2_155",
+        "dataset": "sciforma",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s2_334",
+        "dataset": "sciforma",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s2_650",
+        "dataset": "sciforma",
+        "image_pass": true,
+        "rgb_pass": false
+      },
+      {
+        "id": "sciforma_s3_340",
+        "dataset": "sciforma",
+        "image_pass": false,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s4_380",
+        "dataset": "sciforma",
+        "image_pass": false,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s4_517",
+        "dataset": "sciforma",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s5_454",
+        "dataset": "sciforma",
+        "image_pass": false,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s6_488",
+        "dataset": "sciforma",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s7_755",
+        "dataset": "sciforma",
+        "image_pass": true,
+        "rgb_pass": false
+      },
+      {
+        "id": "sciforma_s7_779",
+        "dataset": "sciforma",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "sciforma_s8_65",
+        "dataset": "sciforma",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_10015",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_10031",
+        "dataset": "ultraedit",
+        "image_pass": false,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_10189",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_10355",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_6940",
+        "dataset": "ultraedit",
+        "image_pass": false,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_8233",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_8278",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_8305",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_8412",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_8623",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_8687",
+        "dataset": "ultraedit",
+        "image_pass": false,
+        "rgb_pass": false
+      },
+      {
+        "id": "ultraedit_8745",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_9187",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": false
+      },
+      {
+        "id": "ultraedit_9317",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": false
+      },
+      {
+        "id": "ultraedit_9567",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": true
+      },
+      {
+        "id": "ultraedit_9770",
+        "dataset": "ultraedit",
+        "image_pass": true,
+        "rgb_pass": true
+      }
+    ],
+    "criterion": "custom VLM judge of source + edited image + instruction, full edit-object extent; no ground-truth image supplied to judge",
+    "resolution": "128x128 resized",
+    "confidence_interval_method": "paired nonparametric bootstrap, 5000 resamples, fixed seed"
+  },
+  "current_editing": {
+    "updated": "2026-11-25T18:42:41.232887+08:00",
+    "inventory": {
+      "row_policy": "accepted English exports; includes distinct teacher and augmentation rows",
+      "unique_tasks": 13945,
+      "datasets": [
+        {
+          "dataset": "anyedit",
+          "rft": 1056,
+          "ti": 380,
+          "total": 1436
+        },
+        {
+          "dataset": "instructpix2pix",
+          "rft": 1014,
+          "ti": 346,
+          "total": 1360
+        },
+        {
+          "dataset": "magicbrush",
+          "rft": 5238,
+          "ti": 3594,
+          "total": 8832
+        },
+        {
+          "dataset": "maskedit_en",
+          "rft": 640,
+          "ti": 451,
+          "total": 1091
+        },
+        {
+          "dataset": "maskedit_scene",
+          "rft": 646,
+          "ti": 431,
+          "total": 1077
+        },
+        {
+          "dataset": "sciforma",
+          "rft": 1891,
+          "ti": 115,
+          "total": 2006
+        },
+        {
+          "dataset": "ultraedit",
+          "rft": 3732,
+          "ti": 634,
+          "total": 4366
+        }
+      ],
+      "teachers": [
+        {
+          "teacher": "base",
+          "rft": 527,
+          "ti": 0
+        },
+        {
+          "teacher": "deepseek",
+          "rft": 0,
+          "ti": 1737
+        },
+        {
+          "teacher": "gpt55",
+          "rft": 1419,
+          "ti": 1800
+        },
+        {
+          "teacher": "gpt56sol",
+          "rft": 0,
+          "ti": 3
+        },
+        {
+          "teacher": "gpt61",
+          "rft": 5943,
+          "ti": 903
+        },
+        {
+          "teacher": "gpt62",
+          "rft": 1426,
+          "ti": 1046
+        },
+        {
+          "teacher": "luna",
+          "rft": 440,
+          "ti": 362
+        },
+        {
+          "teacher": "terra",
+          "rft": 750,
+          "ti": 100
+        },
+        {
+          "teacher": "unrecorded",
+          "rft": 3712,
+          "ti": 0
+        }
+      ],
+      "rft": 14217,
+      "ti": 5951,
+      "total": 20168
+    },
+    "rl": {
+      "pre": {
+        "tasks": 64,
+        "executed": 44,
+        "pass": 3,
+        "judge_pending": 0
+      },
+      "pre_cases": {
+        "magicbrush_dev_237569_1": {
+          "pass": true,
+          "instruction": "have the person jump over a tennis ball.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_49_2": {
+          "pass": false,
+          "instruction": "add white flowers on the lawn",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_214848_1": {
+          "pass": false,
+          "instruction": "remove the table and add an aquarium",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_106772_1": {
+          "pass": false,
+          "instruction": "What if the child was holding a bottle of peper?",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_369969_2": {
+          "pass": false,
+          "instruction": "replace the american flag with a red flag",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_313345_2": {
+          "pass": false,
+          "instruction": "add flying eagles over the statue",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_493074_3": {
+          "pass": false,
+          "instruction": "remove the shoes",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_234956_1": {
+          "pass": false,
+          "instruction": "change the stop sign to a welcome sign",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_529376_1": {
+          "pass": false,
+          "instruction": "close her eyes",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_267300_1": {
+          "pass": false,
+          "instruction": "Put popcorn in the plate.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_122896_1": {
+          "pass": false,
+          "instruction": "Have there be a dolphin jumping out of the water",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_256884_2": {
+          "pass": false,
+          "instruction": "remove the tennis ball",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_190360_1": {
+          "pass": false,
+          "instruction": "let the cat have its eyes closed",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_147546_1": {
+          "pass": false,
+          "instruction": "remove bananas and add grapes",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_148240_1": {
+          "pass": false,
+          "instruction": "the boy should be holding a banana.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_509416_1": {
+          "pass": true,
+          "instruction": "Let the drink be replaced by a glass of milk.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_145741_1": {
+          "pass": false,
+          "instruction": "have a fly sit on the laptop",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_259097_2": {
+          "pass": false,
+          "instruction": "Remove the frisbee.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_512576_1": {
+          "pass": false,
+          "instruction": "change the fan into a chandelier",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_580685_3": {
+          "pass": false,
+          "instruction": "Can it be a red plate?",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_140513_1": {
+          "pass": false,
+          "instruction": "edit some mountains in the background",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_109776_1": {
+          "pass": false,
+          "instruction": "change the bag of chips into a backpack",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_34_2": {
+          "pass": false,
+          "instruction": "Open the zebra's mouth.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_415314_1": {
+          "pass": false,
+          "instruction": "replace the baseball bat for a laser sword",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_206622_1": {
+          "pass": false,
+          "instruction": "Remove the car.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_158548_2": {
+          "pass": false,
+          "instruction": "A dog should be near the sheep.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_25989_2": {
+          "pass": false,
+          "instruction": "let the dog have a newspaper in its mouth",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_112286_3": {
+          "pass": false,
+          "instruction": "let a cat lick its paw",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_125106_1": {
+          "pass": false,
+          "instruction": "replace the chocolate with berries",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_573453_1": {
+          "pass": false,
+          "instruction": "Let a forest be the background.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_75065_3": {
+          "pass": false,
+          "instruction": "let there be an old Greek monument",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_356888_1": {
+          "pass": false,
+          "instruction": "Replace the cart with an upright one.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_134597_1": {
+          "pass": false,
+          "instruction": "put a party hat on the dog",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_189893_1": {
+          "pass": false,
+          "instruction": "add water and flowers in the tub",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_129587_3": {
+          "pass": false,
+          "instruction": "Put a pond next to the elephant",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_265748_1": {
+          "pass": false,
+          "instruction": "remove the guts in the tennis racket",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_523394_1": {
+          "pass": false,
+          "instruction": "make one of the shoes black",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_96497_1": {
+          "pass": false,
+          "instruction": "It should be a notebook on the table.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_289514_3": {
+          "pass": false,
+          "instruction": "Could the woman hold a banana?",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_524924_3": {
+          "pass": false,
+          "instruction": "change the bowl of fruit into a plate of salad",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_178403_3": {
+          "pass": false,
+          "instruction": "Make the cake a chocolate cake",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_550349_1": {
+          "pass": false,
+          "instruction": "remove the people",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_129062_3": {
+          "pass": false,
+          "instruction": "Put a fountain in front of the restaurant.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_329847_3": {
+          "pass": false,
+          "instruction": "give her jean pants",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_456782_2": {
+          "pass": false,
+          "instruction": "add a truck on the street",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_417830_1": {
+          "pass": false,
+          "instruction": "change the flag of the united states for that of england",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_536073_3": {
+          "pass": false,
+          "instruction": "Change it for some shot glasses",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_577847_2": {
+          "pass": false,
+          "instruction": "change the orange into kiwi fruit",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_57350_1": {
+          "pass": false,
+          "instruction": "Let's add a cowboy hat to the giraffe.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_553827_1": {
+          "pass": false,
+          "instruction": "Let the zebra sit.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_581668_1": {
+          "pass": false,
+          "instruction": "Add cookies to the tray.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_262161_1": {
+          "pass": false,
+          "instruction": "make the motorcycles and cars pink",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_86582_1": {
+          "pass": false,
+          "instruction": "a parakeet should be sitting on the knit item",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_359569_1": {
+          "pass": false,
+          "instruction": "Replace the frisbee with a ball.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_381112_2": {
+          "pass": false,
+          "instruction": "let the umbrella have stripes",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_70952_2": {
+          "pass": false,
+          "instruction": "let the ladies wear red dresses",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_465545_1": {
+          "pass": true,
+          "instruction": "Let a green towel be hung in the bathroom.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_266961_2": {
+          "pass": false,
+          "instruction": "It should be a mountain in the background.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_291614_2": {
+          "pass": false,
+          "instruction": "remove the cloth from the chairs",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_106508_2": {
+          "pass": false,
+          "instruction": "add a pedestrian",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_177824_3": {
+          "pass": false,
+          "instruction": "make a cat jump onto a bed",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_236599_1": {
+          "pass": false,
+          "instruction": "Let the people sit down.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_25139_1": {
+          "pass": false,
+          "instruction": "Let the zebra put its face up close to a tree.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_299200_3": {
+          "pass": false,
+          "instruction": "add a street",
+          "serializer": "oneshot_native_source_first_v1"
+        }
+      },
+      "post": {
+        "tasks": 64,
+        "executed": 46,
+        "pass": 11,
+        "judge_pending": 0
+      },
+      "post_cases": {
+        "magicbrush_dev_237569_1": {
+          "pass": true,
+          "instruction": "have the person jump over a tennis ball.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_49_2": {
+          "pass": false,
+          "instruction": "add white flowers on the lawn",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_214848_1": {
+          "pass": false,
+          "instruction": "remove the table and add an aquarium",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_106772_1": {
+          "pass": false,
+          "instruction": "What if the child was holding a bottle of peper?",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_369969_2": {
+          "pass": false,
+          "instruction": "replace the american flag with a red flag",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_313345_2": {
+          "pass": true,
+          "instruction": "add flying eagles over the statue",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_493074_3": {
+          "pass": false,
+          "instruction": "remove the shoes",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_234956_1": {
+          "pass": true,
+          "instruction": "change the stop sign to a welcome sign",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_529376_1": {
+          "pass": false,
+          "instruction": "close her eyes",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_267300_1": {
+          "pass": true,
+          "instruction": "Put popcorn in the plate.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_122896_1": {
+          "pass": false,
+          "instruction": "Have there be a dolphin jumping out of the water",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_256884_2": {
+          "pass": false,
+          "instruction": "remove the tennis ball",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_190360_1": {
+          "pass": false,
+          "instruction": "let the cat have its eyes closed",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_147546_1": {
+          "pass": false,
+          "instruction": "remove bananas and add grapes",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_148240_1": {
+          "pass": false,
+          "instruction": "the boy should be holding a banana.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_509416_1": {
+          "pass": false,
+          "instruction": "Let the drink be replaced by a glass of milk.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_145741_1": {
+          "pass": false,
+          "instruction": "have a fly sit on the laptop",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_259097_2": {
+          "pass": true,
+          "instruction": "Remove the frisbee.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_512576_1": {
+          "pass": false,
+          "instruction": "change the fan into a chandelier",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_580685_3": {
+          "pass": false,
+          "instruction": "Can it be a red plate?",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_140513_1": {
+          "pass": false,
+          "instruction": "edit some mountains in the background",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_109776_1": {
+          "pass": false,
+          "instruction": "change the bag of chips into a backpack",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_34_2": {
+          "pass": false,
+          "instruction": "Open the zebra's mouth.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_415314_1": {
+          "pass": true,
+          "instruction": "replace the baseball bat for a laser sword",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_206622_1": {
+          "pass": false,
+          "instruction": "Remove the car.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_158548_2": {
+          "pass": false,
+          "instruction": "A dog should be near the sheep.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_25989_2": {
+          "pass": false,
+          "instruction": "let the dog have a newspaper in its mouth",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_112286_3": {
+          "pass": false,
+          "instruction": "let a cat lick its paw",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_125106_1": {
+          "pass": false,
+          "instruction": "replace the chocolate with berries",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_573453_1": {
+          "pass": false,
+          "instruction": "Let a forest be the background.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_75065_3": {
+          "pass": false,
+          "instruction": "let there be an old Greek monument",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_356888_1": {
+          "pass": false,
+          "instruction": "Replace the cart with an upright one.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_134597_1": {
+          "pass": true,
+          "instruction": "put a party hat on the dog",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_189893_1": {
+          "pass": false,
+          "instruction": "add water and flowers in the tub",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_129587_3": {
+          "pass": false,
+          "instruction": "Put a pond next to the elephant",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_265748_1": {
+          "pass": false,
+          "instruction": "remove the guts in the tennis racket",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_523394_1": {
+          "pass": false,
+          "instruction": "make one of the shoes black",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_96497_1": {
+          "pass": false,
+          "instruction": "It should be a notebook on the table.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_289514_3": {
+          "pass": false,
+          "instruction": "Could the woman hold a banana?",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_524924_3": {
+          "pass": false,
+          "instruction": "change the bowl of fruit into a plate of salad",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_178403_3": {
+          "pass": false,
+          "instruction": "Make the cake a chocolate cake",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_550349_1": {
+          "pass": false,
+          "instruction": "remove the people",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_129062_3": {
+          "pass": false,
+          "instruction": "Put a fountain in front of the restaurant.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_329847_3": {
+          "pass": false,
+          "instruction": "give her jean pants",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_456782_2": {
+          "pass": false,
+          "instruction": "add a truck on the street",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_417830_1": {
+          "pass": false,
+          "instruction": "change the flag of the united states for that of england",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_536073_3": {
+          "pass": false,
+          "instruction": "Change it for some shot glasses",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_577847_2": {
+          "pass": false,
+          "instruction": "change the orange into kiwi fruit",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_57350_1": {
+          "pass": true,
+          "instruction": "Let's add a cowboy hat to the giraffe.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_553827_1": {
+          "pass": false,
+          "instruction": "Let the zebra sit.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_581668_1": {
+          "pass": true,
+          "instruction": "Add cookies to the tray.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_262161_1": {
+          "pass": false,
+          "instruction": "make the motorcycles and cars pink",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_86582_1": {
+          "pass": false,
+          "instruction": "a parakeet should be sitting on the knit item",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_359569_1": {
+          "pass": false,
+          "instruction": "Replace the frisbee with a ball.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_381112_2": {
+          "pass": true,
+          "instruction": "let the umbrella have stripes",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_70952_2": {
+          "pass": false,
+          "instruction": "let the ladies wear red dresses",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_465545_1": {
+          "pass": false,
+          "instruction": "Let a green towel be hung in the bathroom.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_266961_2": {
+          "pass": false,
+          "instruction": "It should be a mountain in the background.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_291614_2": {
+          "pass": false,
+          "instruction": "remove the cloth from the chairs",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_106508_2": {
+          "pass": false,
+          "instruction": "add a pedestrian",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_177824_3": {
+          "pass": false,
+          "instruction": "make a cat jump onto a bed",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_236599_1": {
+          "pass": false,
+          "instruction": "Let the people sit down.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_25139_1": {
+          "pass": false,
+          "instruction": "Let the zebra put its face up close to a tree.",
+          "serializer": "oneshot_native_source_first_v1"
+        },
+        "magicbrush_dev_299200_3": {
+          "pass": true,
+          "instruction": "add a street",
+          "serializer": "oneshot_native_source_first_v1"
+        }
+      },
+      "matched_tasks": 64,
+      "gained": 10,
+      "lost": 2,
+      "optimizer_updates": 3,
+      "frozen_reference_unchanged": true,
+      "measurement": "custom full_visible_target_v1 image judge; not official benchmark metrics",
+      "limitation": "single seed and legacy greedy decoding; repeat inference before attributing the gain to RL"
+    },
+    "paired_sft": [
+      {
+        "treatment": "ti00",
+        "step": 157,
+        "supervised_tokens": 1001372,
+        "eval": {
+          "tasks": 64,
+          "parsed": 63,
+          "judge_rubric": "full_visible_target_v1",
+          "decode_policy": "deterministic",
+          "numeric_settings": {
+            "policy": "deterministic",
+            "torch_version": "2.13.0+cu129",
+            "deterministic_algorithms": true,
+            "cudnn_deterministic": true,
+            "cudnn_benchmark": false,
+            "matmul_allow_tf32": false,
+            "cudnn_allow_tf32": false,
+            "cublas_workspace": ":4096:8",
+            "recurrent_state": "installed_cache_dtype"
+          },
+          "executed": 36,
+          "judge_pass": 11,
+          "judge_pending": 0,
+          "overall_pass_rate": 0.171875,
+          "executed_pass_rate": 0.3055555555555556
+        },
+        "exposure": {
+          "step": 157,
+          "total_assistant_tokens": 1001372,
+          "method_tokens": {
+            "rft": 1001372
+          },
+          "ti_token_fraction": 0.0,
+          "source_tokens": {
+            "maskedit_scene": 173493,
+            "anyedit": 139842,
+            "maskedit_en": 183036,
+            "magicbrush": 97074,
+            "sciforma": 56124,
+            "ultraedit": 207634,
+            "instructpix2pix": 144169
+          },
+          "teacher_tokens": {
+            "gpt61": 311969,
+            "gpt62": 501176,
+            "gpt55": 186825,
+            "luna": 1402
+          },
+          "distinct_rows_seen": 256,
+          "mean_visits_per_dataset_row": 1.2265625,
+          "actual_counter_matches": true,
+          "assistant_token_budget": 1000000
+        }
+      },
+      {
+        "treatment": "ti25",
+        "step": 153,
+        "supervised_tokens": 1001002,
+        "eval": {
+          "tasks": 64,
+          "parsed": 64,
+          "judge_rubric": "full_visible_target_v1",
+          "decode_policy": "deterministic",
+          "numeric_settings": {
+            "policy": "deterministic",
+            "torch_version": "2.13.0+cu129",
+            "deterministic_algorithms": true,
+            "cudnn_deterministic": true,
+            "cudnn_benchmark": false,
+            "matmul_allow_tf32": false,
+            "cudnn_allow_tf32": false,
+            "cublas_workspace": ":4096:8",
+            "recurrent_state": "installed_cache_dtype"
+          },
+          "executed": 34,
+          "judge_pass": 8,
+          "judge_pending": 0,
+          "overall_pass_rate": 0.125,
+          "executed_pass_rate": 0.23529411764705882
+        },
+        "exposure": {
+          "step": 153,
+          "total_assistant_tokens": 1001002,
+          "method_tokens": {
+            "ti": 286185,
+            "rft": 714817
+          },
+          "ti_token_fraction": 0.2858985296732674,
+          "source_tokens": {
+            "maskedit_scene": 175091,
+            "anyedit": 130890,
+            "maskedit_en": 181186,
+            "magicbrush": 92880,
+            "sciforma": 59094,
+            "ultraedit": 208927,
+            "instructpix2pix": 152934
+          },
+          "teacher_tokens": {
+            "gpt61": 311174,
+            "gpt62": 502106,
+            "gpt55": 186214,
+            "luna": 1508
+          },
+          "distinct_rows_seen": 256,
+          "mean_visits_per_dataset_row": 1.1953125,
+          "actual_counter_matches": true,
+          "assistant_token_budget": 1000000
+        }
+      },
+      {
+        "treatment": "ti50",
+        "step": 150,
+        "supervised_tokens": 1003372,
+        "eval": {
+          "tasks": 64,
+          "parsed": 63,
+          "judge_rubric": "full_visible_target_v1",
+          "decode_policy": "deterministic",
+          "numeric_settings": {
+            "policy": "deterministic",
+            "torch_version": "2.13.0+cu129",
+            "deterministic_algorithms": true,
+            "cudnn_deterministic": true,
+            "cudnn_benchmark": false,
+            "matmul_allow_tf32": false,
+            "cudnn_allow_tf32": false,
+            "cublas_workspace": ":4096:8",
+            "recurrent_state": "installed_cache_dtype"
+          },
+          "executed": 30,
+          "judge_pass": 7,
+          "judge_pending": 0,
+          "overall_pass_rate": 0.109375,
+          "executed_pass_rate": 0.23333333333333334
+        },
+        "exposure": {
+          "step": 150,
+          "total_assistant_tokens": 1003372,
+          "method_tokens": {
+            "ti": 538949,
+            "rft": 464423
+          },
+          "ti_token_fraction": 0.5371377714347221,
+          "source_tokens": {
+            "maskedit_scene": 170390,
+            "anyedit": 133548,
+            "maskedit_en": 193340,
+            "magicbrush": 92918,
+            "sciforma": 60373,
+            "ultraedit": 201881,
+            "instructpix2pix": 150922
+          },
+          "teacher_tokens": {
+            "gpt61": 312978,
+            "gpt62": 497683,
+            "gpt55": 191203,
+            "luna": 1508
+          },
+          "distinct_rows_seen": 256,
+          "mean_visits_per_dataset_row": 1.171875,
+          "actual_counter_matches": true,
+          "assistant_token_budget": 1000000
+        }
+      }
+    ]
+  }
+}

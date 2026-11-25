@@ -1,0 +1,32 @@
+{
+  "status": "ready_for_native_template_equal_token_method_comparison",
+  "model": "/mnt/bn/embodied-lf3/masiyuan/robojudge_v4q/models/Qwen3.8-27B",
+  "source_manifest": "data/star_clean_v2/tasks_train.jsonl",
+  "heldout_manifest": "data/star_clean_v2/tasks_val.jsonl",
+  "rft_data": "data/star_clean_v2/sft_rft_aug/train.jsonl",
+  "mixed_existing_ti_data": "data/star_clean_v2/sft_mixed_aug/train.jsonl",
+  "new_failed_task_ti_pool": "data/star_ti_rescue_gpt55_v1",
+  "sampling": "shuffle_without_replacement_each_epoch",
+  "budget": {
+    "supervised_tokens": 8000000,
+    "max_steps": 6000,
+    "gradient_accumulation": 2
+  },
+  "lora": {
+    "rank": 16,
+    "scope": "standard",
+    "learning_rate": 2e-05
+  },
+  "serializer_version": "oneshot_native_source_first_v1",
+  "replication_seeds": [
+    42,
+    43,
+    44
+  ],
+  "interpretation": "method comparison with differing training coverage; not a pure TI-ratio ablation",
+  "guards": [
+    "no_source_group_overlap",
+    "explicit_rft_ti_lineage",
+    "same_initial_model_and_token_budget"
+  ]
+}

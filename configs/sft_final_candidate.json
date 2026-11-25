@@ -1,0 +1,41 @@
+{
+  "status": "design_pending_clean_corpora_and_shared_serializer",
+  "model": "/mnt/bn/embodied-lf3/masiyuan/robojudge_v4q/models/Qwen3.8-27B",
+  "task": "oneshot_pixel_edit",
+  "dataset_weights": {"magicbrush": 0.6, "ultraedit": 0.25, "sciforma": 0.15},
+  "mode_weights_per_dataset": {"rft": 0.75, "ti": 0.25},
+  "bucket_weights": {
+    "magicbrush/rft": 0.45, "magicbrush/ti": 0.15,
+    "ultraedit/rft": 0.1875, "ultraedit/ti": 0.0625,
+    "sciforma/rft": 0.1125, "sciforma/ti": 0.0375
+  },
+  "ti_mask_default": false,
+  "candidates_per_task_per_mode_pilot": 2,
+  "max_kept_distinct_programs_per_task_per_mode": 2,
+  "teacher_response_mode": "independent_single_call_no_repair",
+  "student_input": ["source_image", "original_instruction"],
+  "student_output": ["source_grounded_evidence", "edit_plan", "executable_code"],
+  "serializer": "shared_native_qwen_template_pending_implementation",
+  "loss": "assistant_only",
+  "lora_rank": 16,
+  "lora_scope": "standard",
+  "learning_rate_initial_candidate": 0.00002,
+  "max_sequence_tokens": 8192,
+  "image_max_pixels": 262144,
+  "split_unit": "original_source_group_before_generation",
+  "unavailable_bucket_policy": "fail_and_collect_more_no_silent_redistribution",
+  "main_ablation_rft_ti_ratios": [[1.0, 0.0], [0.75, 0.25], [0.5, 0.5], [0.0, 1.0]],
+  "ablation_primary_budget": "equal_supervised_tokens_length_stratified",
+  "ablation_support": "identical_tasks_with_verified_candidates_in_both_modes",
+  "replication_seeds": [0, 1, 2],
+  "resume_policy": "restore_optimizer_scheduler_rng_and_data_cursor",
+  "protocol_gates": [
+    "no_source_group_overlap_between_train_and_eval",
+    "train_infer_prompt_token_parity",
+    "same_image_preprocessing_and_thinking_mode",
+    "source_only_executable_program_with_no_target_access",
+    "judge_errors_not_scored_as_semantic_failures",
+    "metrics_and_judge_protocol_frozen",
+    "candidate_teacher_and_lineage_recoverable"
+  ]
+}

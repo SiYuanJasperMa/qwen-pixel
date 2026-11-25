@@ -1,0 +1,932 @@
+{
+  "updated": "2026-11-25T18:42:41.232887+08:00",
+  "inventory": {
+    "row_policy": "accepted English exports; includes distinct teacher and augmentation rows",
+    "unique_tasks": 13945,
+    "datasets": [
+      {
+        "dataset": "anyedit",
+        "rft": 1056,
+        "ti": 380,
+        "total": 1436
+      },
+      {
+        "dataset": "instructpix2pix",
+        "rft": 1014,
+        "ti": 346,
+        "total": 1360
+      },
+      {
+        "dataset": "magicbrush",
+        "rft": 5238,
+        "ti": 3594,
+        "total": 8832
+      },
+      {
+        "dataset": "maskedit_en",
+        "rft": 640,
+        "ti": 451,
+        "total": 1091
+      },
+      {
+        "dataset": "maskedit_scene",
+        "rft": 646,
+        "ti": 431,
+        "total": 1077
+      },
+      {
+        "dataset": "sciforma",
+        "rft": 1891,
+        "ti": 115,
+        "total": 2006
+      },
+      {
+        "dataset": "ultraedit",
+        "rft": 3732,
+        "ti": 634,
+        "total": 4366
+      }
+    ],
+    "teachers": [
+      {
+        "teacher": "base",
+        "rft": 527,
+        "ti": 0
+      },
+      {
+        "teacher": "deepseek",
+        "rft": 0,
+        "ti": 1737
+      },
+      {
+        "teacher": "gpt55",
+        "rft": 1419,
+        "ti": 1800
+      },
+      {
+        "teacher": "gpt56sol",
+        "rft": 0,
+        "ti": 3
+      },
+      {
+        "teacher": "gpt61",
+        "rft": 5943,
+        "ti": 903
+      },
+      {
+        "teacher": "gpt62",
+        "rft": 1426,
+        "ti": 1046
+      },
+      {
+        "teacher": "luna",
+        "rft": 440,
+        "ti": 362
+      },
+      {
+        "teacher": "terra",
+        "rft": 750,
+        "ti": 100
+      },
+      {
+        "teacher": "unrecorded",
+        "rft": 3712,
+        "ti": 0
+      }
+    ],
+    "rft": 14217,
+    "ti": 5951,
+    "total": 20168
+  },
+  "rl": {
+    "pre": {
+      "tasks": 64,
+      "executed": 44,
+      "pass": 3,
+      "judge_pending": 0
+    },
+    "pre_cases": {
+      "magicbrush_dev_237569_1": {
+        "pass": true,
+        "instruction": "have the person jump over a tennis ball.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_49_2": {
+        "pass": false,
+        "instruction": "add white flowers on the lawn",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_214848_1": {
+        "pass": false,
+        "instruction": "remove the table and add an aquarium",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_106772_1": {
+        "pass": false,
+        "instruction": "What if the child was holding a bottle of peper?",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_369969_2": {
+        "pass": false,
+        "instruction": "replace the american flag with a red flag",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_313345_2": {
+        "pass": false,
+        "instruction": "add flying eagles over the statue",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_493074_3": {
+        "pass": false,
+        "instruction": "remove the shoes",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_234956_1": {
+        "pass": false,
+        "instruction": "change the stop sign to a welcome sign",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_529376_1": {
+        "pass": false,
+        "instruction": "close her eyes",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_267300_1": {
+        "pass": false,
+        "instruction": "Put popcorn in the plate.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_122896_1": {
+        "pass": false,
+        "instruction": "Have there be a dolphin jumping out of the water",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_256884_2": {
+        "pass": false,
+        "instruction": "remove the tennis ball",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_190360_1": {
+        "pass": false,
+        "instruction": "let the cat have its eyes closed",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_147546_1": {
+        "pass": false,
+        "instruction": "remove bananas and add grapes",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_148240_1": {
+        "pass": false,
+        "instruction": "the boy should be holding a banana.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_509416_1": {
+        "pass": true,
+        "instruction": "Let the drink be replaced by a glass of milk.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_145741_1": {
+        "pass": false,
+        "instruction": "have a fly sit on the laptop",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_259097_2": {
+        "pass": false,
+        "instruction": "Remove the frisbee.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_512576_1": {
+        "pass": false,
+        "instruction": "change the fan into a chandelier",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_580685_3": {
+        "pass": false,
+        "instruction": "Can it be a red plate?",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_140513_1": {
+        "pass": false,
+        "instruction": "edit some mountains in the background",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_109776_1": {
+        "pass": false,
+        "instruction": "change the bag of chips into a backpack",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_34_2": {
+        "pass": false,
+        "instruction": "Open the zebra's mouth.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_415314_1": {
+        "pass": false,
+        "instruction": "replace the baseball bat for a laser sword",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_206622_1": {
+        "pass": false,
+        "instruction": "Remove the car.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_158548_2": {
+        "pass": false,
+        "instruction": "A dog should be near the sheep.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_25989_2": {
+        "pass": false,
+        "instruction": "let the dog have a newspaper in its mouth",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_112286_3": {
+        "pass": false,
+        "instruction": "let a cat lick its paw",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_125106_1": {
+        "pass": false,
+        "instruction": "replace the chocolate with berries",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_573453_1": {
+        "pass": false,
+        "instruction": "Let a forest be the background.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_75065_3": {
+        "pass": false,
+        "instruction": "let there be an old Greek monument",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_356888_1": {
+        "pass": false,
+        "instruction": "Replace the cart with an upright one.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_134597_1": {
+        "pass": false,
+        "instruction": "put a party hat on the dog",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_189893_1": {
+        "pass": false,
+        "instruction": "add water and flowers in the tub",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_129587_3": {
+        "pass": false,
+        "instruction": "Put a pond next to the elephant",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_265748_1": {
+        "pass": false,
+        "instruction": "remove the guts in the tennis racket",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_523394_1": {
+        "pass": false,
+        "instruction": "make one of the shoes black",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_96497_1": {
+        "pass": false,
+        "instruction": "It should be a notebook on the table.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_289514_3": {
+        "pass": false,
+        "instruction": "Could the woman hold a banana?",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_524924_3": {
+        "pass": false,
+        "instruction": "change the bowl of fruit into a plate of salad",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_178403_3": {
+        "pass": false,
+        "instruction": "Make the cake a chocolate cake",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_550349_1": {
+        "pass": false,
+        "instruction": "remove the people",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_129062_3": {
+        "pass": false,
+        "instruction": "Put a fountain in front of the restaurant.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_329847_3": {
+        "pass": false,
+        "instruction": "give her jean pants",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_456782_2": {
+        "pass": false,
+        "instruction": "add a truck on the street",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_417830_1": {
+        "pass": false,
+        "instruction": "change the flag of the united states for that of england",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_536073_3": {
+        "pass": false,
+        "instruction": "Change it for some shot glasses",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_577847_2": {
+        "pass": false,
+        "instruction": "change the orange into kiwi fruit",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_57350_1": {
+        "pass": false,
+        "instruction": "Let's add a cowboy hat to the giraffe.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_553827_1": {
+        "pass": false,
+        "instruction": "Let the zebra sit.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_581668_1": {
+        "pass": false,
+        "instruction": "Add cookies to the tray.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_262161_1": {
+        "pass": false,
+        "instruction": "make the motorcycles and cars pink",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_86582_1": {
+        "pass": false,
+        "instruction": "a parakeet should be sitting on the knit item",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_359569_1": {
+        "pass": false,
+        "instruction": "Replace the frisbee with a ball.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_381112_2": {
+        "pass": false,
+        "instruction": "let the umbrella have stripes",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_70952_2": {
+        "pass": false,
+        "instruction": "let the ladies wear red dresses",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_465545_1": {
+        "pass": true,
+        "instruction": "Let a green towel be hung in the bathroom.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_266961_2": {
+        "pass": false,
+        "instruction": "It should be a mountain in the background.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_291614_2": {
+        "pass": false,
+        "instruction": "remove the cloth from the chairs",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_106508_2": {
+        "pass": false,
+        "instruction": "add a pedestrian",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_177824_3": {
+        "pass": false,
+        "instruction": "make a cat jump onto a bed",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_236599_1": {
+        "pass": false,
+        "instruction": "Let the people sit down.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_25139_1": {
+        "pass": false,
+        "instruction": "Let the zebra put its face up close to a tree.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_299200_3": {
+        "pass": false,
+        "instruction": "add a street",
+        "serializer": "oneshot_native_source_first_v1"
+      }
+    },
+    "post": {
+      "tasks": 64,
+      "executed": 46,
+      "pass": 11,
+      "judge_pending": 0
+    },
+    "post_cases": {
+      "magicbrush_dev_237569_1": {
+        "pass": true,
+        "instruction": "have the person jump over a tennis ball.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_49_2": {
+        "pass": false,
+        "instruction": "add white flowers on the lawn",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_214848_1": {
+        "pass": false,
+        "instruction": "remove the table and add an aquarium",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_106772_1": {
+        "pass": false,
+        "instruction": "What if the child was holding a bottle of peper?",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_369969_2": {
+        "pass": false,
+        "instruction": "replace the american flag with a red flag",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_313345_2": {
+        "pass": true,
+        "instruction": "add flying eagles over the statue",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_493074_3": {
+        "pass": false,
+        "instruction": "remove the shoes",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_234956_1": {
+        "pass": true,
+        "instruction": "change the stop sign to a welcome sign",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_529376_1": {
+        "pass": false,
+        "instruction": "close her eyes",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_267300_1": {
+        "pass": true,
+        "instruction": "Put popcorn in the plate.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_122896_1": {
+        "pass": false,
+        "instruction": "Have there be a dolphin jumping out of the water",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_256884_2": {
+        "pass": false,
+        "instruction": "remove the tennis ball",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_190360_1": {
+        "pass": false,
+        "instruction": "let the cat have its eyes closed",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_147546_1": {
+        "pass": false,
+        "instruction": "remove bananas and add grapes",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_148240_1": {
+        "pass": false,
+        "instruction": "the boy should be holding a banana.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_509416_1": {
+        "pass": false,
+        "instruction": "Let the drink be replaced by a glass of milk.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_145741_1": {
+        "pass": false,
+        "instruction": "have a fly sit on the laptop",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_259097_2": {
+        "pass": true,
+        "instruction": "Remove the frisbee.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_512576_1": {
+        "pass": false,
+        "instruction": "change the fan into a chandelier",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_580685_3": {
+        "pass": false,
+        "instruction": "Can it be a red plate?",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_140513_1": {
+        "pass": false,
+        "instruction": "edit some mountains in the background",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_109776_1": {
+        "pass": false,
+        "instruction": "change the bag of chips into a backpack",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_34_2": {
+        "pass": false,
+        "instruction": "Open the zebra's mouth.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_415314_1": {
+        "pass": true,
+        "instruction": "replace the baseball bat for a laser sword",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_206622_1": {
+        "pass": false,
+        "instruction": "Remove the car.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_158548_2": {
+        "pass": false,
+        "instruction": "A dog should be near the sheep.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_25989_2": {
+        "pass": false,
+        "instruction": "let the dog have a newspaper in its mouth",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_112286_3": {
+        "pass": false,
+        "instruction": "let a cat lick its paw",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_125106_1": {
+        "pass": false,
+        "instruction": "replace the chocolate with berries",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_573453_1": {
+        "pass": false,
+        "instruction": "Let a forest be the background.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_75065_3": {
+        "pass": false,
+        "instruction": "let there be an old Greek monument",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_356888_1": {
+        "pass": false,
+        "instruction": "Replace the cart with an upright one.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_134597_1": {
+        "pass": true,
+        "instruction": "put a party hat on the dog",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_189893_1": {
+        "pass": false,
+        "instruction": "add water and flowers in the tub",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_129587_3": {
+        "pass": false,
+        "instruction": "Put a pond next to the elephant",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_265748_1": {
+        "pass": false,
+        "instruction": "remove the guts in the tennis racket",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_523394_1": {
+        "pass": false,
+        "instruction": "make one of the shoes black",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_96497_1": {
+        "pass": false,
+        "instruction": "It should be a notebook on the table.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_289514_3": {
+        "pass": false,
+        "instruction": "Could the woman hold a banana?",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_524924_3": {
+        "pass": false,
+        "instruction": "change the bowl of fruit into a plate of salad",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_178403_3": {
+        "pass": false,
+        "instruction": "Make the cake a chocolate cake",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_550349_1": {
+        "pass": false,
+        "instruction": "remove the people",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_129062_3": {
+        "pass": false,
+        "instruction": "Put a fountain in front of the restaurant.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_329847_3": {
+        "pass": false,
+        "instruction": "give her jean pants",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_456782_2": {
+        "pass": false,
+        "instruction": "add a truck on the street",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_417830_1": {
+        "pass": false,
+        "instruction": "change the flag of the united states for that of england",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_536073_3": {
+        "pass": false,
+        "instruction": "Change it for some shot glasses",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_577847_2": {
+        "pass": false,
+        "instruction": "change the orange into kiwi fruit",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_57350_1": {
+        "pass": true,
+        "instruction": "Let's add a cowboy hat to the giraffe.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_553827_1": {
+        "pass": false,
+        "instruction": "Let the zebra sit.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_581668_1": {
+        "pass": true,
+        "instruction": "Add cookies to the tray.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_262161_1": {
+        "pass": false,
+        "instruction": "make the motorcycles and cars pink",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_86582_1": {
+        "pass": false,
+        "instruction": "a parakeet should be sitting on the knit item",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_359569_1": {
+        "pass": false,
+        "instruction": "Replace the frisbee with a ball.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_381112_2": {
+        "pass": true,
+        "instruction": "let the umbrella have stripes",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_70952_2": {
+        "pass": false,
+        "instruction": "let the ladies wear red dresses",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_465545_1": {
+        "pass": false,
+        "instruction": "Let a green towel be hung in the bathroom.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_266961_2": {
+        "pass": false,
+        "instruction": "It should be a mountain in the background.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_291614_2": {
+        "pass": false,
+        "instruction": "remove the cloth from the chairs",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_106508_2": {
+        "pass": false,
+        "instruction": "add a pedestrian",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_177824_3": {
+        "pass": false,
+        "instruction": "make a cat jump onto a bed",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_236599_1": {
+        "pass": false,
+        "instruction": "Let the people sit down.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_25139_1": {
+        "pass": false,
+        "instruction": "Let the zebra put its face up close to a tree.",
+        "serializer": "oneshot_native_source_first_v1"
+      },
+      "magicbrush_dev_299200_3": {
+        "pass": true,
+        "instruction": "add a street",
+        "serializer": "oneshot_native_source_first_v1"
+      }
+    },
+    "matched_tasks": 64,
+    "gained": 10,
+    "lost": 2,
+    "optimizer_updates": 3,
+    "frozen_reference_unchanged": true,
+    "measurement": "custom full_visible_target_v1 image judge; not official benchmark metrics",
+    "limitation": "single seed and legacy greedy decoding; repeat inference before attributing the gain to RL"
+  },
+  "paired_sft": [
+    {
+      "treatment": "ti00",
+      "step": 157,
+      "supervised_tokens": 1001372,
+      "eval": {
+        "tasks": 64,
+        "parsed": 63,
+        "judge_rubric": "full_visible_target_v1",
+        "decode_policy": "deterministic",
+        "numeric_settings": {
+          "policy": "deterministic",
+          "torch_version": "2.13.0+cu129",
+          "deterministic_algorithms": true,
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "matmul_allow_tf32": false,
+          "cudnn_allow_tf32": false,
+          "cublas_workspace": ":4096:8",
+          "recurrent_state": "installed_cache_dtype"
+        },
+        "executed": 36,
+        "judge_pass": 11,
+        "judge_pending": 0,
+        "overall_pass_rate": 0.171875,
+        "executed_pass_rate": 0.3055555555555556
+      },
+      "exposure": {
+        "step": 157,
+        "total_assistant_tokens": 1001372,
+        "method_tokens": {
+          "rft": 1001372
+        },
+        "ti_token_fraction": 0.0,
+        "source_tokens": {
+          "maskedit_scene": 173493,
+          "anyedit": 139842,
+          "maskedit_en": 183036,
+          "magicbrush": 97074,
+          "sciforma": 56124,
+          "ultraedit": 207634,
+          "instructpix2pix": 144169
+        },
+        "teacher_tokens": {
+          "gpt61": 311969,
+          "gpt62": 501176,
+          "gpt55": 186825,
+          "luna": 1402
+        },
+        "distinct_rows_seen": 256,
+        "mean_visits_per_dataset_row": 1.2265625,
+        "actual_counter_matches": true,
+        "assistant_token_budget": 1000000
+      }
+    },
+    {
+      "treatment": "ti25",
+      "step": 153,
+      "supervised_tokens": 1001002,
+      "eval": {
+        "tasks": 64,
+        "parsed": 64,
+        "judge_rubric": "full_visible_target_v1",
+        "decode_policy": "deterministic",
+        "numeric_settings": {
+          "policy": "deterministic",
+          "torch_version": "2.13.0+cu129",
+          "deterministic_algorithms": true,
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "matmul_allow_tf32": false,
+          "cudnn_allow_tf32": false,
+          "cublas_workspace": ":4096:8",
+          "recurrent_state": "installed_cache_dtype"
+        },
+        "executed": 34,
+        "judge_pass": 8,
+        "judge_pending": 0,
+        "overall_pass_rate": 0.125,
+        "executed_pass_rate": 0.23529411764705882
+      },
+      "exposure": {
+        "step": 153,
+        "total_assistant_tokens": 1001002,
+        "method_tokens": {
+          "ti": 286185,
+          "rft": 714817
+        },
+        "ti_token_fraction": 0.2858985296732674,
+        "source_tokens": {
+          "maskedit_scene": 175091,
+          "anyedit": 130890,
+          "maskedit_en": 181186,
+          "magicbrush": 92880,
+          "sciforma": 59094,
+          "ultraedit": 208927,
+          "instructpix2pix": 152934
+        },
+        "teacher_tokens": {
+          "gpt61": 311174,
+          "gpt62": 502106,
+          "gpt55": 186214,
+          "luna": 1508
+        },
+        "distinct_rows_seen": 256,
+        "mean_visits_per_dataset_row": 1.1953125,
+        "actual_counter_matches": true,
+        "assistant_token_budget": 1000000
+      }
+    },
+    {
+      "treatment": "ti50",
+      "step": 150,
+      "supervised_tokens": 1003372,
+      "eval": {
+        "tasks": 64,
+        "parsed": 63,
+        "judge_rubric": "full_visible_target_v1",
+        "decode_policy": "deterministic",
+        "numeric_settings": {
+          "policy": "deterministic",
+          "torch_version": "2.13.0+cu129",
+          "deterministic_algorithms": true,
+          "cudnn_deterministic": true,
+          "cudnn_benchmark": false,
+          "matmul_allow_tf32": false,
+          "cudnn_allow_tf32": false,
+          "cublas_workspace": ":4096:8",
+          "recurrent_state": "installed_cache_dtype"
+        },
+        "executed": 30,
+        "judge_pass": 7,
+        "judge_pending": 0,
+        "overall_pass_rate": 0.109375,
+        "executed_pass_rate": 0.23333333333333334
+      },
+      "exposure": {
+        "step": 150,
+        "total_assistant_tokens": 1003372,
+        "method_tokens": {
+          "ti": 538949,
+          "rft": 464423
+        },
+        "ti_token_fraction": 0.5371377714347221,
+        "source_tokens": {
+          "maskedit_scene": 170390,
+          "anyedit": 133548,
+          "maskedit_en": 193340,
+          "magicbrush": 92918,
+          "sciforma": 60373,
+          "ultraedit": 201881,
+          "instructpix2pix": 150922
+        },
+        "teacher_tokens": {
+          "gpt61": 312978,
+          "gpt62": 497683,
+          "gpt55": 191203,
+          "luna": 1508
+        },
+        "distinct_rows_seen": 256,
+        "mean_visits_per_dataset_row": 1.171875,
+        "actual_counter_matches": true,
+        "assistant_token_budget": 1000000
+      }
+    }
+  ]
+}

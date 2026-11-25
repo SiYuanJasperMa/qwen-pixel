@@ -1,52 +1,32 @@
-Public page: https://siyuanmacs.github.io/qwen-pixel/
+# Qwen Pixel-Edit
 
-# Qwen Pixel
+Train Qwen to edit real images by writing executable Python programs that compute the edited RGB pixels.
 
-Post-train Qwen as a pixel-space model: understand, generate, and edit images as palette-indexed rasters, with executable RGB programs for high-resolution edits and video.
+**Interface:** source image + English edit instruction → one Qwen response with evidence, plan and code → source-only Python execution → edited RGB/PNG.
 
-This project extends the completed `qwen_image_edit_smoke` experiment. It follows two references:
+- [Project page](https://siyuanjasperma.github.io/qwen-pixel/)
+- [Live visualization](https://huggingfriends-qwen-pixel-live.static.hf.space/index.html)
+- [Updated data construction plan](DATA_CONSTRUCTION_PLAN_V2.md)
+- [Paper/data mixture references](docs/EDITING_TRAINING_DATA_REFERENCES_20261125.md)
 
-- **PixelBench** (`arXiv:2611.02540`): a palette of up to eight RGB colors followed by a grid of palette indices; T2P, I2P, pixel understanding, and Pixel Reconstruction Tuning.
-- **PixelWorld** (`../PixelWorld`): coding agents as direct RGB world models; executable programs and exact PNG ↔ `uint32` validation.
+## Current scope
 
-## Layout
+Image editing only: natural photographs, English infographics and scientific diagrams. The main checkpoint is Qwen3.8-27B. Programs use PIL, NumPy and classical OpenCV; no pretrained editing or generation backend is invoked by the policy.
 
-```
-qwen_pixel/
-├── GOAL.md                 objective, milestones, boundaries
-├── docs/DESIGN.md          interface, tasks, model and training plan
-├── docs/DATA.md            data sources, schema, conversion rules
-├── pixel/palette.py        palette/grid codec and validator
-├── pixel/prompts.py        task prompt templates
-├── pixel/synthetic.py      procedural scene generator
-├── scripts/make_synthetic.py
-├── scripts/convert_previous.py
-├── scripts/build_mixture.py
-├── train/run_pixel_sft.py
-├── eval/eval_pixel.py
-└── data/                   generated datasets (ignored by git)
-```
+The six retained data sources are MagicBrush, UltraEdit region-based editing, applicable AnyEdit tasks, MaskEdit scene, MaskEdit English infographics, and SciForma Editing. InstructPix2Pix is disabled for new construction and future training snapshots; previous artifacts remain archived.
 
-## Quick start
+The V2 proposal targets 20K rigorously verified supervision rows, then data-size scaling based on measured validation gains. Its mixture weights and RFT/TI balance are experimental settings. Reliable unseen editing is still under investigation. The autonomous SFT goal is currently paused.
 
-```bash
-PY=/mnt/bn/embodied-lf3/masiyuan/v2en_repro/.venv_known_good_sft/bin/python
-cd /mnt/bn/embodied-lf3/masiyuan/qwen_pixel
+## Code
 
-# 1. generate a small synthetic corpus
-"$PY" scripts/make_synthetic.py --out data/synth_smoke_v1 --count 2000 --grid-size 16
+- `pixel/`: source/RGB execution, immutable observations, native protocol and validation.
+- `train/run_pixel_sft.py`: native Qwen SFT and exact continuation state.
+- `scripts/continuous_editing_teachers.py`: one-shot RFT/TI candidate generation.
+- `scripts/build_paired_method_sft.py`: source/task/teacher-matched supervision comparison.
+- `scripts/eval_local_qwen_oneshot.py`: one-shot editing evaluation.
+- `scripts/run_agent_demo.py`: separate multi-turn protocol correctness diagnostics.
+- `tests/`: format, label, identity and execution regressions.
 
-# 2. validate the codec and dataset
-"$PY" scripts/make_synthetic.py --out data/synth_smoke_v1 --count 2000 --grid-size 16 --validate-only
+Training images, generated data, model weights and private credentials are kept in the research workspace. Configure private API authentication locally; legacy proxy evaluation clients read `QWEN_PIXEL_PROXY_KEY` from the environment. The original exploratory overview is preserved in `docs/README_LEGACY.md`.
 
-# 3. smoke train
-CUDA_VISIBLE_DEVICES=0 "$PY" train/run_pixel_sft.py train \
-  --model ../qwen_image_edit_smoke/models/Qwen3.5-9B-Base \
-  --data data/synth_smoke_v1/train.jsonl \
-  --val data/synth_smoke_v1/val.jsonl \
-  --output outputs/smoke_v1 --steps 200 --rank 16
-```
-
-## Current status
-
-Milestone 1–3 are in progress. The existing milestone-0 results (code-as-policy edits, grounding, QA) are documented in `../qwen_image_edit_smoke/RESULTS.md` and on the `qwen-pixel-edit` page.
+The project page exposes the live HF dashboard and a static snapshot, with the new data construction plan rendered for reading. Historical palette and agent experiments are archived separately and do not constitute official image-edit benchmark results.
